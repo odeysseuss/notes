@@ -1,3 +1,4 @@
+#import "@preview/cetz:0.5.0"
 #import "/utils/math.typ": *
 
 #set page(numbering: "1")
@@ -70,6 +71,50 @@
 + $ tan theta = 0 ==> theta = n pi $
 + $ sin theta = 1 ==> theta = (4n + 1)pi/2 $
 + $ cos theta = 1 ==> theta = 2 n pi $
+
+\
+= Properties of a triangles
+\
+#cetz.canvas({
+  import cetz.draw: *
+
+  let a = (-2.5, 0)
+  let b = (2.5, 0)
+  let c = (0, 3)
+
+  line(a, b, c, close: true, name: "tri")
+
+  // north -> below the point
+  // south -> above the point
+  // east -> left of the point
+  // west -> right of the point
+  content(a, [ $A$ ], anchor: "east", padding: .2)
+  content(b, [ $B$ ], anchor: "west", padding: .2)
+  content(c, [ $C$ ], anchor: "south", padding: .2)
+
+  content((b, 50%, c), [ $a$ ], anchor: "west", padding: .2)
+  content((a, 50%, c), [ $b$ ], anchor: "east", padding: .2)
+  content((a, 50%, b), [ $c$ ], anchor: "north", padding: .2)
+})
+
+\
+== Law of Sines:
+$ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
+\
+== Law of Cosines:
++ $ a^2 = b^2 + c^2 - 2 b c cos A ==> cos A = frac(b^2 + c^2 - a^2, 2 b c) $
++ $ b^2 = a^2 + c^2 - 2 a c cos B ==> cos B = frac(a^2 + c^2 - b^2, 2 a c) $
++ $ c^2 = a^2 + b^2 - 2 a b cos C ==> cos C = frac(a^2 + b^2 - c^2, 2 a b) $
+\
+== Projection Rule:
++ $ a = b cos C + c cos B $
++ $ b = c cos A + a cos C $
++ $ c = a cos B + b cos A $
+\
+== Napier's analogy:
++ $ tan(frac(B - C, 2)) = frac(b - c, b + c) cot frac(A, 2) $
++ $ tan(frac(C - A, 2)) = frac(c - a, c + a) cot frac(B, 2) $
++ $ tan(frac(A - B, 2)) = frac(a - b, a + b) cot frac(C, 2) $
 
 \
 = Domain/Range of inverse trig functions

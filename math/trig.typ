@@ -1,20 +1,10 @@
-#import "@preview/cetz:0.5.0"
 #import "/utils/math.typ": *
+#import "/utils/template.typ": conf
+#import "@preview/cetz:0.5.0"
 
-#set page(numbering: "1")
-#set par(leading: 1.2em)
-#set text(font: "Maple Mono NF")
-#show math.equation: set text(font: "Fira Math")
+#show: conf.with(title: "Trigonometry")
 #show math.equation: set align(left)
 
-#align(center)[#underline(text(
-    weight: "bold",
-    size: 22pt,
-    fill: blue,
-  )[Trigonometry])
-]
-
-\
 = Domain/Range of trig functions
 \
 #table(
@@ -33,8 +23,12 @@
 \
 + $ sin(A plus.minus B) = sin A cos B plus.minus cos A sin B $
 + $ cos(A plus.minus B) = cos A cos B minus.plus sin A sin B $
-+ $ tan(A plus.minus B) = frac(tan A plus.minus tan B, 1 minus.plus tan A tan B) $
-+ $ cot(A plus.minus B) = frac(cot A cot B minus.plus 1, cot B plus.minus cot A) $
++ $
+    tan(A plus.minus B) = frac(tan A plus.minus tan B, 1 minus.plus tan A tan B)
+  $
++ $
+    cot(A plus.minus B) = frac(cot A cot B minus.plus 1, cot B plus.minus cot A)
+  $
 + $ sin(A + B) + sin(A - B) = 2 sin A cos B $
 + $ sin(A + B) - sin(A - B) = 2 cos A sin B $
 + $ cos(A + B) + cos(A - B) = 2 cos A cos B $
@@ -122,9 +116,13 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
   [$arccos theta$], [$[-1 ,1]$], [$[0, pi]$],
   [$arctan theta$], [$RR$], [$[-pi/2, pi/2]$],
   [$arccot theta$], [$RR$], [$(0, pi)$],
-  [$arccsc theta$], [$(-infinity, -1] union [1, infinity)$], [$[-pi/2, pi/2] - {0}$],
+  [$arccsc theta$],
+  [$(-infinity, -1] union [1, infinity)$],
+  [$[-pi/2, pi/2] - {0}$],
 
-  [$arcsec theta$], [$(-infinity, -1] union [1, infinity)$], [$[0, pi] - {pi/2}$],
+  [$arcsec theta$],
+  [$(-infinity, -1] union [1, infinity)$],
+  [$[0, pi] - {pi/2}$],
 )
 
 \
@@ -152,8 +150,8 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
 + $ arccos x - arccos y = arccos(x y + sqrt(1 - x^2)sqrt(1 - y^2)) $
 + $
     arctan x + arctan y & = arctan(frac(x + y, 1 - x y)), x y < 1 \
-                        & = pi + arctan(frac(x + y, 1 - x y)), x y > 1, x > 0, y > 0 \
-                        & = -pi + arctan(frac(x + y, 1- x y)), x y > 1, x < 0, y < 0
+    & = pi + arctan(frac(x + y, 1 - x y)), x y > 1, x > 0, y > 0 \
+    & = -pi + arctan(frac(x + y, 1- x y)), x y > 1, x < 0, y < 0
   $
 + $ arctan x - arctan y = arctan(frac(x - y, 1 + x y)) $
 + $ 2 arcsin x = arcsin(2x sqrt(1 - x^2)) $

@@ -1,15 +1,18 @@
+#import "/utils/template.typ": *
 #import "/utils/math.typ": *
-#import "/utils/template.typ": conf
 #import "@preview/cetz:0.5.0"
 
 #show: conf.with(title: "Trigonometry")
-#show math.equation: set align(left)
+#show math.equation.where(block: true): set align(left)
 
-= Domain/Range of trig functions
+= Trigonometry
+\
+
+== Domain/Range of trig functions
 \
 #table(
   columns: (auto, auto, auto),
-  [], [*Domain*], [*Range*],
+  [*Identities*], [*Domain*], [*Range*],
   [$sin theta$], [$RR$], [$[-1, 1]$],
   [$cos theta$], [$RR$], [$[-1 ,1]$],
   [$tan theta$], [$RR - {(2n + 1)pi/2}$], [$RR$],
@@ -19,7 +22,7 @@
 )
 
 \
-= Trigonometric Formulas
+== Trigonometric Formulas
 \
 + $ sin(A plus.minus B) = sin A cos B plus.minus cos A sin B $
 + $ cos(A plus.minus B) = cos A cos B minus.plus sin A sin B $
@@ -44,6 +47,7 @@
     cos 2 A = cos^2 A - sin^2 A = 1 - 2 sin^2 A = frac(1 - tan^2 A, 1 + tan^2 A)
   $
 + $ tan 2 A = frac(2 tan A, 1 - tan^2 A) $
++ $ cot 2 A = frac(cot^2 A - 1, 2 cot A) $
 + $ sin 3 A = 3 sin A - 4 sin^3 A $
 + $ cos 3 A = 4 cos^3 A - 3 cos A $
 + $ tan 3 A = frac(3 tan A - tan^3 A, 1 - 3 tan^2 A) $
@@ -51,18 +55,18 @@
 + $ tan^2 A = frac(1 - cos 2 A, 1 + cos 2 A) $
 
 \
-= Value of #sym.theta
+== Value of #sym.theta
 \
 + $ sin theta = sin alpha ==> theta = n pi + (-1)^n alpha $
 + $ cos theta = cos alpha ==> theta = 2n pi plus.minus alpha $
 + $ tan theta = tan alpha ==> theta= n pi plus alpha $
 + $ sin theta = 0 ==> theta = n pi $
-+ $ cos theta = 0 ==> theta = (2n + 1)pi/2 $
++ $ cos theta = 0 ==> theta = n pi + pi/2 = (2n + 1)pi/2 $
 + $ tan theta = 0 ==> theta = n pi $
-+ $ sin theta = 1 ==> theta = (4n + 1)pi/2 $
++ $ sin theta = 1 ==> theta = 2 n pi + pi/2 = (4n + 1)pi/2 $
 + $ cos theta = 1 ==> theta = 2 n pi $
-
 \
+
 = Properties of a triangles
 \
 #cetz.canvas({
@@ -72,7 +76,7 @@
   let b = (2.5, 0)
   let c = (0, 3)
 
-  line(a, b, c, close: true, name: "tri")
+  line(a, b, c, close: true, name: "tri", stroke: rgb(colors.light))
 
   // north -> below the point
   // south -> above the point
@@ -105,13 +109,16 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
 + $ tan(frac(B - C, 2)) = frac(b - c, b + c) cot frac(A, 2) $
 + $ tan(frac(C - A, 2)) = frac(c - a, c + a) cot frac(B, 2) $
 + $ tan(frac(A - B, 2)) = frac(a - b, a + b) cot frac(C, 2) $
-
 \
-= Domain/Range of inverse trig functions
+
+= Inverse Trigonometry
+\
+
+== Domain/Range of inverse trig functions
 \
 #table(
   columns: (auto, auto, auto),
-  [], [*Domain*], [*Range*],
+  [*Identities*], [*Domain*], [*Range*],
   [$arcsin theta$], [$[-1, 1]$], [$[-pi/2 , pi/2]$],
   [$arccos theta$], [$[-1 ,1]$], [$[0, pi]$],
   [$arctan theta$], [$RR$], [$[-pi/2, pi/2]$],
@@ -119,14 +126,13 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
   [$arccsc theta$],
   [$(-infinity, -1] union [1, infinity)$],
   [$[-pi/2, pi/2] - {0}$],
-
   [$arcsec theta$],
   [$(-infinity, -1] union [1, infinity)$],
   [$[0, pi] - {pi/2}$],
 )
 
 \
-= Inverse Trigonometric Formulas
+== Inverse Trigonometric Formulas
 \
 + $ arcsin x = arccsc(1/x) $
 + $ arccos x = arcsec(1/x) $
@@ -144,17 +150,15 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
 + $ arcsin x + arccos x = pi/2 $
 + $ arctan x + arccot x = pi/2 $
 + $ arccsc x + arcsec x = pi/2 $
-+ $ arcsin x + arcsin y = arcsin(x sqrt(1 - y^2) + y sqrt(1 - x^2)) $
-+ $ arcsin x - arcsin y = arcsin(x sqrt(1 - y^2) - y sqrt(1 - x^2)) $
-+ $ arccos x + arccos y = arccos(x y - sqrt(1 - x^2)sqrt(1 - y^2)) $
-+ $ arccos x - arccos y = arccos(x y + sqrt(1 - x^2)sqrt(1 - y^2)) $
++ $ arcsin x plus.minus arcsin y = arcsin(x sqrt(1 - y^2) plus.minus y sqrt(1 - x^2)) $
++ $ arccos x plus.minus arccos y = arccos(x y minus.plus sqrt(1 - x^2)sqrt(1 - y^2)) $
 + $
     arctan x + arctan y & = arctan(frac(x + y, 1 - x y)), x y < 1 \
     & = pi + arctan(frac(x + y, 1 - x y)), x y > 1, x > 0, y > 0 \
     & = -pi + arctan(frac(x + y, 1- x y)), x y > 1, x < 0, y < 0
   $
 + $ arctan x - arctan y = arctan(frac(x - y, 1 + x y)) $
-+ $ 2 arcsin x = arcsin(2x sqrt(1 - x^2)) $
++ $ 2 arcsin x = arccos(1 - 2x^2) = arcsin(2x sqrt(1 - x^2)) $
 + $ 2 arccos x = arccos(2x^2 - 1) $
 + $
     2 arctan x = arctan(frac(2x, 1 - x^2)) = arccos(frac(1 - x^2, 1 + x^2)) = arcsin(frac(2x, 1 + x^2))

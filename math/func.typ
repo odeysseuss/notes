@@ -1,10 +1,34 @@
-#import "/utils/template.typ": conf
+#import "@preview/lilaq:0.6.0" as lq
+#import "/utils/template.typ": *
 #import "/utils/math.typ": *
 
 #show: conf.with(title: "Graphing Functions")
 
+#let graph(title, func, x) = {
+  show: lq.set-grid(stroke: rgb(colors.grey))
+  show: lq.set-spine(stroke: rgb(colors.light))
+
+  lq.diagram(
+    title: title,
+    // title: lq.title(
+    //   [#title],
+    //   position: bottom,
+    //   pad: 1.5em,
+    // ),
+    width: 7cm,
+    height: 4cm,
+    ylim: (-10, 10),
+    xlim: (-5, 5),
+    lq.plot(
+      color: rgb("#bdbcf9"),
+      smooth: true,
+      x,
+      x.map(func),
+    ),
+  )
+}
+
 = Transformation of functions
-\
 \
 
 == Translations
@@ -57,16 +81,25 @@
 #graph($abs(frac(1, 2) dot x)$, x => calc.abs(1 / 2 * x), abs_x)
 \
 
-= Trig Functions
+= Graphs
+\
+
+== Common Graphs
+\
+#graph($2x$, x => 2 * x, range(-5, 5))
+#graph($x^2$, x => x * x, range(-5, 5))
+#graph($sqrt(x)$, x => calc.sqrt(x), range(0, 5))
+#graph($ln(x)$, x => calc.ln(x), range(1, 5))
+#graph($e^x$, x => calc.exp(x), range(0, 5))
+\
+
+== Trig Functions
 \
 #let trig_x = lq.linspace(-2 * calc.pi, 2 * calc.pi)
 
-#columns(2)[
-  #graph($sin(x)$, x => calc.sin(x), trig_x)
-  #graph($cos(x)$, x => calc.cos(x), trig_x)
-  #graph($tan(x)$, x => calc.tan(x), trig_x)
-  #colbreak()
-  #graph($csc(x)$, x => 1 / calc.sin(x), trig_x)
-  #graph($sec(x)$, x => 1 / calc.cos(x), trig_x)
-  #graph($cot(x)$, x => 1 / calc.tan(x), trig_x)
-]
+#graph($sin(x)$, x => calc.sin(x), trig_x)
+#graph($cos(x)$, x => calc.cos(x), trig_x)
+#graph($tan(x)$, x => calc.tan(x), trig_x)
+#graph($csc(x)$, x => 1 / calc.sin(x), trig_x)
+#graph($sec(x)$, x => 1 / calc.cos(x), trig_x)
+#graph($cot(x)$, x => 1 / calc.tan(x), trig_x)

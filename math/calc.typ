@@ -219,6 +219,16 @@ If $u = f(x)$ and $v = g(x)$,
     integral sqrt(a^2 - x^2) d x = frac(x sqrt(a^2 - x^2), 2) + frac(a^2, 2) arcsin frac(x, a) + C
   $
 \
+== Definite Integrals
+\
+- $ integral_a^b f(x) d x = [F(x)]_a^b = F(b) - F(a) $
+- $ integral_a^b f(x) d x = - integral_b^a f(x) d x $
+- $ integral_a^b f(x) d x = integral_a^b f(z) d z $
+- $ integral_a^b f(x) d x = integral f(a + b - x) d x $
+- $ integral_a^b f(x) d x = integral_(a - c)^(b - c) f(x + c) d x $
+- $ integral_a^b f(x) d x = integral_(a + c)^(b + c) f(x - c) d x $
+- $ integral_a^infinity f(x) d x = lim_(b->infinity) integral_a^b f(x) d x $
+\
 
 = Solving Integrals
 \

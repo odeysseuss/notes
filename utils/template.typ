@@ -33,16 +33,55 @@
 
   align(center)[#underline(text(
       weight: "bold",
-      size: 4em,
-      fill: rgb(colors.blue),
+      size: 3.2em,
+      fill: rgb(colors.purple),
     )[#title])
   ]
 
   linebreak()
 
-  outline()
-
-  pagebreak()
+  // outline()
+  // pagebreak()
 
   body
+}
+
+#let note(content) = {
+  block(
+    stroke: (left: 4pt + rgb(colors.blue)),
+    inset: (left: 1.0em, top: 0.5em, bottom: 0.5em),
+    [
+      #block(
+        fill: rgb(colors.black),
+        inset: 1.0em,
+        radius: 1.0em,
+        text(fill: rgb(colors.blue), weight: "semibold")[Note],
+      )
+      #text(fill: rgb(colors.light))[#content],
+    ],
+  )
+}
+
+#let q_counter = counter("question")
+#show heading: it => {
+  q_counter.update(0)
+  it
+}
+
+#let q(body) = {
+  q_counter.step()
+
+  box(
+    fill: rgb(colors.black),
+    radius: 1em,
+    inset: 0.5em,
+  )[
+    #context {
+      let h_num = counter(heading).display()
+      let q_num = q_counter.display()
+
+      text(fill: rgb(colors.blue), weight: "bold")[Q #h_num#q_num]
+    }
+  ]
+  [   #body]
 }

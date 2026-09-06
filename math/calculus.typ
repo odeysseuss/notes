@@ -206,14 +206,12 @@ If $u = f(x)$ and $v = g(x)$,
   $
 + $ integral frac(1, sqrt(a^2 - x^2)) d x = arcsin frac(x, a) + C $
 + $
-    integral sqrt(x^2 + a^2) d x
-    &= frac(x sqrt(x^2 + a^2), 2) + frac(a^2, 2) ln abs(x + sqrt(x^2 + a^2)) + C \
-    &= frac(x sqrt(x^2 + a^2), 2) + frac(a^2, 2) arcsinh frac(x, a) + C
+    integral sqrt(x^2 + a^2) d x & = frac(x sqrt(x^2 + a^2), 2) + frac(a^2, 2) ln abs(x + sqrt(x^2 + a^2)) + C \
+                                 & = frac(x sqrt(x^2 + a^2), 2) + frac(a^2, 2) arcsinh frac(x, a) + C
   $
 + $
-    integral sqrt(x^2 - a^2) d x
-    &= frac(x sqrt(x^2 - a^2), 2) + frac(a^2, 2) ln abs(x + sqrt(x^2 - a^2)) + C \
-    &= frac(x sqrt(x^2 - a^2), 2) - frac(a^2, 2) arccosh frac(x, a) + C
+    integral sqrt(x^2 - a^2) d x & = frac(x sqrt(x^2 - a^2), 2) + frac(a^2, 2) ln abs(x + sqrt(x^2 - a^2)) + C \
+                                 & = frac(x sqrt(x^2 - a^2), 2) - frac(a^2, 2) arccosh frac(x, a) + C
   $
 + $
     integral sqrt(a^2 - x^2) d x = frac(x sqrt(a^2 - x^2), 2) + frac(a^2, 2) arcsin frac(x, a) + C
@@ -250,9 +248,9 @@ If $u = f(x)$ and $v = g(x)$,
 = Series
 \
 == Taylor Series
-  - $ f(x) = sum_(n=0)^infinity frac(f^((n)) (a), n!) (x - a)^n $
+- $ f(x) = sum_(n=0)^infinity frac(f^((n)) (a), n!) (x - a)^n $
 == Maclaurin Series
-  - $ f(x) = sum_(n=0)^infinity frac(f^((n)) (0), n!) x^n $
+- $ f(x) = sum_(n=0)^infinity frac(f^((n)) (0), n!) x^n $
 \
 
 == Common Series

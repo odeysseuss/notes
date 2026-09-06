@@ -123,12 +123,8 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
   [$arccos theta$], [$[-1 ,1]$], [$[0, pi]$],
   [$arctan theta$], [$RR$], [$[-pi/2, pi/2]$],
   [$arccot theta$], [$RR$], [$(0, pi)$],
-  [$arccsc theta$],
-  [$(-infinity, -1] union [1, infinity)$],
-  [$[-pi/2, pi/2] - {0}$],
-  [$arcsec theta$],
-  [$(-infinity, -1] union [1, infinity)$],
-  [$[0, pi] - {pi/2}$],
+  [$arccsc theta$], [$(-infinity, -1] union [1, infinity)$], [$[-pi/2, pi/2] - {0}$],
+  [$arcsec theta$], [$(-infinity, -1] union [1, infinity)$], [$[0, pi] - {pi/2}$],
 )
 
 \
@@ -154,8 +150,8 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
 + $ arccos x plus.minus arccos y = arccos(x y minus.plus sqrt(1 - x^2)sqrt(1 - y^2)) $
 + $
     arctan x + arctan y & = arctan(frac(x + y, 1 - x y)), x y < 1 \
-    & = pi + arctan(frac(x + y, 1 - x y)), x y > 1, x > 0, y > 0 \
-    & = -pi + arctan(frac(x + y, 1- x y)), x y > 1, x < 0, y < 0
+                        & = pi + arctan(frac(x + y, 1 - x y)), x y > 1, x > 0, y > 0 \
+                        & = -pi + arctan(frac(x + y, 1- x y)), x y > 1, x < 0, y < 0
   $
 + $ arctan x - arctan y = arctan(frac(x - y, 1 + x y)) $
 + $ 2 arcsin x = arccos(1 - 2x^2) = arcsin(2x sqrt(1 - x^2)) $

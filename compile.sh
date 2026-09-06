@@ -8,10 +8,10 @@ typstyle -i "${src_dirs[@]}" -t 2
 # Compile
 math_dir="$HOME/notes/math"
 srcs=(
-    "$math_dir/calc.typ"
-    "$math_dir/func.typ"
-    "$math_dir/line.typ"
-    "$math_dir/trig.typ"
+    "$math_dir/calculus.typ"
+    "$math_dir/functions.typ"
+    "$math_dir/geometry.typ"
+    "$math_dir/trigonometry.typ"
 )
 
 pdf_dir="$HOME/notes/pdf"

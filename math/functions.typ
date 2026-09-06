@@ -2,7 +2,7 @@
 #import "/utils/template.typ": *
 #import "/utils/math.typ": *
 
-#show: conf.with(title: "Graphing Functions")
+#show: conf.with(title: "Functions")
 
 #let graph(title, func, x) = {
   show: lq.set-grid(stroke: rgb(colors.grey))

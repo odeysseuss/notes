@@ -119,12 +119,12 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
 #table(
   columns: (auto, auto, auto),
   [*Identities*], [*Domain*], [*Range*],
-  [$arcsin theta$], [$[-1, 1]$], [$[-pi/2 , pi/2]$],
-  [$arccos theta$], [$[-1 ,1]$], [$[0, pi]$],
-  [$arctan theta$], [$RR$], [$[-pi/2, pi/2]$],
-  [$arccot theta$], [$RR$], [$(0, pi)$],
-  [$arccsc theta$], [$(-infinity, -1] union [1, infinity)$], [$[-pi/2, pi/2] - {0}$],
-  [$arcsec theta$], [$(-infinity, -1] union [1, infinity)$], [$[0, pi] - {pi/2}$],
+  [$arcsin x$], [$[-1, 1]$], [$[-pi/2 , pi/2]$],
+  [$arccos x$], [$[-1 ,1]$], [$[0, pi]$],
+  [$arctan x$], [$RR$], [$[-pi/2, pi/2]$],
+  [$arccot x$], [$RR$], [$(0, pi)$],
+  [$arccsc x$], [$(-infinity, -1] union [1, infinity)$], [$[-pi/2, pi/2] - {0}$],
+  [$arcsec x$], [$(-infinity, -1] union [1, infinity)$], [$[0, pi] - {pi/2}$],
 )
 
 \
@@ -137,6 +137,9 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
              & = arccot(1/x) - pi, x < 0 \
              & = 0, x = 0
   $
++ $ arccsc x = arcsin(1 / x) = pi/2 - arcsec x $
++ $ arcsec x = arccos(1 / x) = pi/2 - arccsc x $
++ $ arccot x = pi/2 - arctan(x) $
 + $ arcsin(-x) = -arcsin x $
 + $ arccos(-x) = pi - arccos x $
 + $ arctan(-x) = -arctan x $

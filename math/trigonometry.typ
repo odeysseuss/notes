@@ -92,8 +92,15 @@
 })
 
 \
+== Area of a triangle
++ $ Delta = 1/2 a b sin C = 1/2 b c sin A = 1/2 c a sin B $
++ $ Delta = sqrt(s(s - a)(s - b)(s - c)) quad s = frac(a + b + c, 2) $
+\
 == Law of Sines:
-$ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
+$
+  frac(a, sin A) = frac(b, sin B) = frac(c, sin C) = 2R \
+  "where circumradius", R = frac(a b c, 4 Delta)
+$
 \
 == Law of Cosines:
 + $ a^2 = b^2 + c^2 - 2 b c cos A ==> cos A = frac(b^2 + c^2 - a^2, 2 b c) $
@@ -109,6 +116,14 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
 + $ tan(frac(B - C, 2)) = frac(b - c, b + c) cot frac(A, 2) $
 + $ tan(frac(C - A, 2)) = frac(c - a, c + a) cot frac(B, 2) $
 + $ tan(frac(A - B, 2)) = frac(a - b, a + b) cot frac(C, 2) $
+\
+== Half Angle Formulas:
++ $ sin(A/2) = sqrt(frac((s - b)(s - c), b c)) $
++ $ cos(A/2) = sqrt(frac(s(s - a), b c)) $
++ $
+    tan(A/2) = sqrt(frac((s - b)(s - c), s(s - a))) = frac(r, (s - a)) \
+    "where inradius", r = 4R sin(A/2)sin(B/2)sin(C/2)
+  $
 \
 
 = Inverse Trigonometry
@@ -157,6 +172,9 @@ $ frac(a, sin A) = frac(b, sin B) = frac(c, sin C) $
                         & = -pi + arctan(frac(x + y, 1- x y)), x y > 1, x < 0, y < 0
   $
 + $ arctan x - arctan y = arctan(frac(x - y, 1 + x y)) $
++ $
+    arctan x plus.minus arctan y plus.minus arctan z = arctan(frac(x plus.minus y plus.minus z minus.plus x y z, 1 minus.plus x y minus.plus y z minus.plus z x))
+  $
 + $ 2 arcsin x = arccos(1 - 2x^2) = arcsin(2x sqrt(1 - x^2)) $
 + $ 2 arccos x = arccos(2x^2 - 1) $
 + $

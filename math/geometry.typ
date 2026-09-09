@@ -113,26 +113,50 @@
 \
 = Conics
 \
-- General equation of a conic:
-  $
-    & a x^2 + b y^2 + 2 h x y + 2 g x + 2 f y + c = 0 \
-    & "If " mat(
-        delim: "|",
-        a, h, g;
-        h, b, f;
-        g, f, c
-      ) = 0, "then it represents a pair of straight lines" \
-    & "If " mat(
-        delim: "|",
-        a, h, g;
-        h, b, f;
-        g, f, c
-      ) eq.not 0, \
-    & => a = b, h = 0 -> "Circle" \
-    & => a b - h^2 = 0 -> "Parabola" \
-    & => a b - h^2 > 0 -> "Ellipse" \
-    & => a b - h^2 < 0 -> "Hyperbola" \
-  $
+== Terms Related to Conics
+\
+- *Focus (Plural: Foci):* A fixed point used to define the conic section. The set of
+  all points in the curve maintains a specific relationship regarding their distance
+  to the focus.
+- *Axis of Symmetry (Major/Transverse Axis):* The line passing through the focus (or foci)
+  and perpendicular to the Directrix, dividing the conic into two symmetrical halves.
+- *Directrix (Plural: Directrices):* A fixed line perpendicular to the axis of symmetry.
+  The distance on any point on the curve to a focus is proportional to its perpendicular
+  distance to this line.
+- *Latus Rectum:* The chord that passes through a focus, runs perpendicular to thw major axis,
+  and has both endpoints lying on the curve.
+- *Vertex (Plural: Vertices):* The point or points where the conic section intersects its
+  principal axis of symmetry.
+- *Center:* The midpoint of the segment connecting the two foci (applies to circles, ellipses
+  and hyperbolas; Parabolas don't have a center)
+- *Eccentricity ($e$):* A measure of how much the conic section deviates from being a circle.
+  $ e = frac("distance of focus", "distance of directrix") $
+  - Circle: e = 0
+  - Ellipse: 0 < e < 1
+  - Parabola: e = 1
+  - Hyperbola: e > 1
+\
+== General equation of a conic
+\
+$
+  & a x^2 + b y^2 + 2 h x y + 2 g x + 2 f y + c = 0 \
+  & "If " mat(
+      delim: "|",
+      a, h, g;
+      h, b, f;
+      g, f, c
+    ) = 0, "then it represents a pair of straight lines" \
+  & "If " mat(
+      delim: "|",
+      a, h, g;
+      h, b, f;
+      g, f, c
+    ) eq.not 0, \
+  & => a = b, h = 0 -> "Circle" \
+  & => a b - h^2 = 0 -> "Parabola" \
+  & => a b - h^2 > 0 -> "Ellipse" \
+  & => a b - h^2 < 0 -> "Hyperbola" \
+$
 \
 == Circle
 \
@@ -239,3 +263,22 @@
     $ (frac(r_1 x_2 + r_2 x_1, r_1 + r_2), frac(r_1 y_2 + r_2 y_1, r_1 + r_2)) $
   - External center of similitude:
     $ (frac(r_1 x_2 - r_2 x_1, r_1 - r_2), frac(r_1 y_2 - r_2 y_1, r_1 - r_2)) $
+\
+== Parabola
+\
+#figure(
+  image("../assets/math_geometry_parabola.png"),
+  caption: $y^2 = 4a x$,
+) <parabola>
+
+\
+== Ellipse
+\
+#figure(
+  image("../assets/math_geometry_ellipse.png"),
+  caption: $x^2/a^2 + y^2/b^2 = 1$,
+) <ellipse>
+#block([
+  #show math.equation.where(block: true): set align(left)
+  - $ e = sqrt(1 - b^2/a^2) $
+])

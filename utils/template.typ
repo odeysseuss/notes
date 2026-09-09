@@ -46,7 +46,7 @@
   body
 }
 
-#let note(content) = {
+#let note(body) = {
   block(
     stroke: (left: 4pt + rgb(colors.blue)),
     inset: (left: 1.0em, top: 0.5em, bottom: 0.5em),
@@ -57,9 +57,22 @@
         radius: 1.0em,
         text(fill: rgb(colors.blue), weight: "semibold")[Note],
       )
-      #text(fill: rgb(colors.light))[#content],
+      #text(fill: rgb(colors.light))[#body]
     ],
   )
+}
+
+#let ex(body) = {
+  box(
+    fill: rgb(colors.black),
+    radius: 1em,
+    inset: 0.5em,
+  )[
+    #context {
+      text(fill: rgb(colors.blue), weight: "bold")[Ex.]
+    }
+  ]
+  [   #body]
 }
 
 #let q_counter = counter("question")

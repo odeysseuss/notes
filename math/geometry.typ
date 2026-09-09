@@ -270,15 +270,81 @@ $
   image("../assets/math_geometry_parabola.png"),
   caption: $y^2 = 4a x$,
 ) <parabola>
+\
+#table(
+  columns: (auto, auto, auto),
+  [*Description*], [*$ y^2 = 4a x $*], [*$ x^2 = 4a y $*],
+  [Coordinates of the vertex], [$ (0, 0) $], [$ (0, 0) $],
+  [Coordinates of the focus], [$ (a, 0) $], [$ (0, a) $],
+  [Point of intersection of axis and directrix], [$ (-a, 0) $], [$ (0, -a) $],
+  [Coordinates of endpoints of latus rectum], [$ (a, plus.minus 2a) $], [$ (plus.minus 2a, a) $],
+  [Focal parameter / Distance from focus to directrix], [$ abs(2a) $], [$ abs(2a) $],
+  [Focal distance of point $(x_1, y_1)$], [$ x_1 + a $], [$ y_1 + a $],
+  [Length of the latus rectum], [$ abs(4a) $], [$ abs(4a) $],
+  [Equation of directrix], [$ x = -a $], [$ y = -a $],
+  [Equation of the axis], [$ y = 0 $], [$ x = 0 $],
+  [Equation of the latus rectum], [$ x = a $], [$ y = a $],
+  [Equation of the tangent at vertex], [$ x = 0 $], [$ y = 0 $],
+  [Parametric equation], [$ x = a t^2, y = 2a t $], [$ x = 2a t, y = a t^2 $],
+  [Eccentricity], [$ e = 1 $], [$ e = 1 $],
+)
 
 \
 == Ellipse
 \
 #figure(
   image("../assets/math_geometry_ellipse.png"),
-  caption: $x^2/a^2 + y^2/b^2 = 1$,
+  caption: $x^2/a^2 + y^2/b^2 = 1, quad a > b$,
 ) <ellipse>
-#block([
-  #show math.equation.where(block: true): set align(left)
-  - $ e = sqrt(1 - b^2/a^2) $
-])
+\
+#table(
+  columns: (auto, auto, auto),
+  [*Description*], [$ x^2/a^2 + y^2/b^2 = 1, quad a > b $], [$ x^2/a^2 + y^2/b^2 = 1, quad b > a $],
+  [Coordinates of the center], [$ (0, 0) $], [$ (0, 0) $],
+  [Coordinates of Foci], [$ (plus.minus a e, 0) $], [$ (0, plus.minus b e) $],
+  [Coordinates of vertices / Endpoints of major axis], [$ (plus.minus a, 0) $], [$ (0, plus.minus b) $],
+  [Endpoints of minor axis], [$ (0, plus.minus b) $], [$ (plus.minus a, 0) $],
+  [Length of the major axis], [$ 2a $], [$ 2b $],
+  [Length of the minor axis], [$ 2b $], [$ 2a $],
+  [Length of latus rectum], [$ 2 b^2/a $], [$ 2 a^2/b $],
+  [Distance between foci], [$ 2a e $], [$ 2b e $],
+  [Focal radii of a point $(x_1, y_1)$], [$ a plus.minus e x_1 $], [$ b plus.minus e y_1 $],
+  [Distance between two directrices], [$ 2 a/e $], [$ 2 b/e $],
+  [Equation of major axis], [$ y = 0 $], [$ x = 0 $],
+  [Equation of minor axis], [$ x = 0 $], [$ y = 0 $],
+  [Equation of directrices], [$ x = plus.minus a/e $], [$ y = plus.minus b/e $],
+  [Equation of latus rectum], [$ x = plus.minus a e $], [$ y = plus.minus b e $],
+  [Parametric equation], [$ x = a cos(theta), y = b sin(theta) $], [$ x = a cos(theta), y = b sin(theta) $],
+  [Eccentricity], [$ e = sqrt(1 - b^2/a^2) $], [$ e = sqrt(1 - a^2/b^2) $],
+  [Area], [$ pi a b $], [$ pi a b $],
+)
+
+\
+== Hyperbola
+\
+#figure(
+  image("../assets/math_geometry_hyperbola.png"),
+  caption: $x^2/a^2 - y^2/b^2 = 1$,
+) <hyperbola>
+\
+#table(
+  columns: (auto, auto, auto),
+  [*Description*], [$ x^2/a^2 - y^2/b^2 = 1 $], [$ y^2/b^2 - x^2/a^2 = 1 $],
+  [Coordinates of the center], [$ (0, 0) $], [$ (0, 0) $],
+  [Coordinates of Foci], [$ (plus.minus a e, 0) $], [$ (0, plus.minus b e) $],
+  [Coordinates of vertices / Endpoints of transverse axis], [$ (plus.minus a, 0) $], [$ (0, plus.minus b) $],
+  [Endpoints of conjugate axis], [$ (0, plus.minus b) $], [$ (plus.minus a, 0) $],
+  [Length of the transverse axis], [$ 2a $], [$ 2b $],
+  [Length of the conjugate axis], [$ 2b $], [$ 2a $],
+  [Length of latus rectum], [$ 2 b^2/a $], [$ 2 a^2/b $],
+  [Distance between foci], [$ 2a e $], [$ 2b e $],
+  [Focal radii of a point $(x_1, y_1)$], [$ abs(e x_1 plus.minus a) $], [$ abs(e y_1 plus.minus b) $],
+  [Distance between two directrices], [$ 2 a/e $], [$ 2 b/e $],
+  [Equation of transverse axis], [$ y = 0 $], [$ x = 0 $],
+  [Equation of conjugate axis], [$ x = 0 $], [$ y = 0 $],
+  [Equation of directrices], [$ x = plus.minus a/e $], [$ y = plus.minus b/e $],
+  [Equation of latus rectum], [$ x = plus.minus a e $], [$ y = plus.minus b e $],
+  [Equation of asymptotes], [$ y = plus.minus b/a x $], [$ y = plus.minus b/a x $],
+  [Parametric equation], [$ x = a sec(theta), y = b tan(theta) $], [$ x = a tan(theta), y = b sec(theta) $],
+  [Eccentricity], [$ e = sqrt(1 + b^2/a^2) $], [$ e = sqrt(1 + a^2/b^2) $],
+)

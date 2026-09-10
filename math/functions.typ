@@ -130,7 +130,7 @@ $
 \
 - An inverse function is a function that "reverses" or "undoes" the operation of the
   corresponding function.
-- *Two-Sided Inverse:* A function $f^{-1}$ is a true two-sided inverse of $f$ if it undoes $f$
+- *Two-Sided Inverse:* A function $f^(-1)$ is a true two-sided inverse of $f$ if it undoes $f$
   regardless of the order of composition:
   $
     (f^(-1) circle.small f)(x) = x quad "for all" x in X \

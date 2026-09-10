@@ -3,7 +3,7 @@
 #show: conf.with(title: "Notations")
 
 = Greek Alphabet
-
+\
 #table(
   columns: (auto, auto, auto),
   align: (center, center, left),
@@ -34,8 +34,9 @@
   [$Omega$], [$omega$], [Omega],
 )
 
+\
 = Logical & Set Notation
-
+\
 #table(
   columns: (auto, auto, auto, auto),
   align: (center, left, left, left),
@@ -97,3 +98,19 @@ Read as: "Gamma semantically entails P exclusive-or Q is logically equivalent to
   $ (forall alpha in A, exists! beta in B : f(alpha) = beta) arrow.r (A subset.eq B and A subset.not emptyset) $,
 )
 Read as: "If for every alpha in A there exists a unique beta in B such that f of alpha equals beta, then A is a subset of B and A is not a subset of the empty set."
+
+\
+= Mathematical Terms
+\
+- *Definition:* An explicit statement of the precise meaning of a mathematical term,
+  symbol or proof.
+- *Theorem:* A mathematical statement that has been proven to be true.
+- *Axiom / Postulate:* A self evident truth or statement accepted as true without proof.
+- *Proposition:* A standalone mathematical statement that is proven using axioms.
+- *Lemma:* A minor or subsidiary theorem used as stepping stone to prove a larger theorem.
+- *Corollary:* A proposition or statement that follows directly and easily from a previously
+  proven theorem.
+- *Hypothesis:* A proposed explanation or conditional assumption used as a basic of further
+  reasoning or proof.
+- *Conjecture:* A statement or mathematical hypothesis that is suspected to be true based on
+  preliminary evidence or intuition but has not yet been formally proved or disproved.

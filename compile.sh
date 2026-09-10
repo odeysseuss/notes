@@ -12,6 +12,7 @@ srcs=(
     "$math_dir/functions.typ"
     "$math_dir/geometry.typ"
     "$math_dir/trigonometry.typ"
+    "$math_dir/notations.typ"
 )
 
 pdf_dir="$HOME/notes/pdf"

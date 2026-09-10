@@ -116,135 +116,149 @@
 == Terms Related to Conics
 \
 - *Focus (Plural: Foci):* A fixed point used to define the conic section. The set of
-  all points in the curve maintains a specific relationship regarding their distance
-  to the focus.
+  all points on the curve maintains a constant ratio regarding their distance to the focus relative to the directrix.
 - *Axis of Symmetry (Major/Transverse Axis):* The line passing through the focus (or foci)
   and perpendicular to the Directrix, dividing the conic into two symmetrical halves.
 - *Directrix (Plural: Directrices):* A fixed line perpendicular to the axis of symmetry.
-  The distance on any point on the curve to a focus is proportional to its perpendicular
-  distance to this line.
-- *Latus Rectum:* The chord that passes through a focus, runs perpendicular to thw major axis,
+- *Latus Rectum:* The chord that passes through a focus, runs perpendicular to the major/transverse axis,
   and has both endpoints lying on the curve.
-- *Vertex (Plural: Vertices):* The point or points where the conic section intersects its
-  principal axis of symmetry.
-- *Center:* The midpoint of the segment connecting the two foci (applies to circles, ellipses
-  and hyperbolas; Parabolas don't have a center)
+- *Vertex (Plural: Vertices):* The point or points where the conic section intersects its principal axis of symmetry.
+- *Center:* The midpoint of the segment connecting the two foci (applies to circles, ellipses, and hyperbolas; parabolas do not have a center).
 - *Eccentricity ($e$):* A measure of how much the conic section deviates from being a circle.
-  $ e = frac("distance of focus", "distance of directrix") $
-  - Circle: e = 0
-  - Ellipse: 0 < e < 1
-  - Parabola: e = 1
-  - Hyperbola: e > 1
+  $ e = frac("distance to focus", "distance to directrix") $
+  - Circle: $e = 0$
+  - Ellipse: $0 < e < 1$
+  - Parabola: $e = 1$
+  - Hyperbola: $e > 1$
+
 \
 == General equation of a conic
 \
-$
-  & a x^2 + b y^2 + 2 h x y + 2 g x + 2 f y + c = 0 \
-  & "If " mat(
-      delim: "|",
-      a, h, g;
-      h, b, f;
-      g, f, c
-    ) = 0, "then it represents a pair of straight lines" \
-  & "If " mat(
-      delim: "|",
-      a, h, g;
-      h, b, f;
-      g, f, c
-    ) eq.not 0, \
-  & => a = b, h = 0 -> "Circle" \
-  & => a b - h^2 = 0 -> "Parabola" \
-  & => a b - h^2 > 0 -> "Ellipse" \
-  & => a b - h^2 < 0 -> "Hyperbola" \
-$
+- $
+    & a x^2 + b y^2 + 2 h x y + 2 g x + 2 f y + c = 0 \
+    & "If " mat(
+        delim: "|",
+        a, h, g;
+        h, b, f;
+        g, f, c
+      ) = 0, "then it represents a pair of straight lines" \
+    & "If " mat(
+        delim: "|",
+        a, h, g;
+        h, b, f;
+        g, f, c
+      ) eq.not 0, \
+    & => h^2 - a b < 0, quad a = b, h = 0 -> "Circle" \
+    & => h^2 - a b < 0 -> "Ellipse" \
+    & => h^2 - a b = 0 -> "Parabola" \
+    & => h^2 - a b > 0 -> "Hyperbola" \
+  $
+- *General Expression of Conic ($S$):* $S$ represents the expression of the conic secrion
+  equation when all terms are moved to one side so that the equation equals to zero. #ex([For a circle:])
+  $ S = x^2 + y^2 + 2g x + 2f y + c $
+- *Evaluating at a specific point ($S_1$):* $S_1$ is evaluated by substituting the coordinates
+  of a specific given value $(x_1, y_1)$ directly into the expression $S$. #ex([For a circle:])
+  $ S = x_1^2 + y_1^2 + 2g x_1 + 2f y_1 + c $
+- *Tangent transformation operator ($T$):* $T$ is created by replacing the variables $(x, y)$ in
+  the expression $S$ using a special set of rules with the give point $(x_1, y_1)$:
+  #table(
+    columns: (auto, auto),
+    [*Term is S*], [*Term in T*],
+    [$ x^2 $], [$ x x_1 $],
+    [$ y^2 $], [$ y y_1 $],
+    [$ 2 x $], [$ x + x_1 $],
+    [$ 2 y $], [$ y + y_1 $],
+    [$ 2 x y $], [$ x y_1 + x_1 y $],
+    [$ c $], [$ c $],
+  )
+  #ex([For a circle:])
+  $ S = x x_1 + y y_1 + g (x + x_1) + f (y + y_1) + c $
+
+\
+== Universal Conic Properties (Applied to Any Conic $S = 0$)
+\
+- Position of a point $(x_1, y_1)$ relative to conic $S$:
+  - Outside: $S_1 > 0$ (for ellipse/circle)
+  - On the curve: $S_1 = 0$
+  - Inside: $S_1 < 0$ (for ellipse/circle)
+- Equation of tangent at $(x_1, y_1)$ on $S = 0$:
+  $ T = 0 $
+- Chord of contact from an external point $(x_1, y_1)$:
+  $ T = 0 $
+- Pair of tangents from an external point $(x_1, y_1)$:
+  $ S dot S_1 = T^2 $
+- Chord bisected at a given point $(x_1, y_1)$:
+  $ T = S_1 $
+- Polar of a point $(x_1, y_1)$ with respect to $S = 0$:
+  $ T = 0 $
+
 \
 == Circle
 \
-- General equation of a circle:
-  $ x^2 + y^2 + 2g x + 2f y + c = 0 $
+- General Equation: $x^2 + y^2 + 2g x + 2f y + c = 0$
   - Center: $(-g, -f)$
-  - Radius: $sqrt(g^2 + f^2 - c)$
-  - Length of x-axis intercept: $2 sqrt(g^2 - c)$
-  - Length of y-axis intercept: $2 sqrt(f^2 - c)$
-  - Touches x-axis: $g^2 = c$
-  - Touches y-axis: $f^2 = c$
+  - Radius: $r = sqrt(g^2 + f^2 - c)$
+  - $x$-intercept length: $2 sqrt(g^2 - c)$
+  - $y$-intercept length: $2 sqrt(f^2 - c)$
+  - Touches $x$-axis: $g^2 = c$
+  - Touches $y$-axis: $f^2 = c$
   - Touches both axes: $g^2 = f^2 = c$
-  - Center on x-axis: $f = 0$
-  - Center on y-axis: $g = 0$
-  - Center at origin: $g = 0$ and $f = 0$
+  - Center on $x$-axis: $f = 0$
+  - Center on $y$-axis: $g = 0$
+  - Center at origin: $g = 0, f = 0$
   - Passes through origin: $c = 0$
-  - Touches x-axis at origin: $g = 0$ and $c = 0$
-  - Touches y-axis at origin: $f = 0$ and $c = 0$
+  - Touches $x$-axis at origin: $g = 0, c = 0$
+  - Touches $y$-axis at origin: $f = 0, c = 0$
 - Central form:
-  $ (x - h)^2 + (y - k)^2 = r^2 quad "where center" = (h, k) " and radius" = r $
-- Parametric forms:
-  - For $x^2 + y^2 = r^2$:
-    $ x = r cos(theta), quad y = r sin(theta) quad (0 <= theta < 2 pi) $
-  - For $(x - h)^2 + (y - k)^2 = r^2$:
-    $ x = h + r cos(theta), quad y = k + r sin(theta) $
-- Diameter form (endpoints of diameter are $(x_1, y_1)$ and $(x_2, y_2)$):
+  $ (x - h)^2 + (y - k)^2 = r^2 quad "where center" = (h, k), "radius" = r $
+- Parametric form:
+  - For $x^2 + y^2 = r^2$: $x = r cos theta, quad y = r sin theta quad (0 <= theta < 2 pi)$
+  - For $(x - h)^2 + (y - k)^2 = r^2$: $x = h + r cos theta, quad y = k + r sin theta$
+- Diameter form (endpoints $(x_1, y_1)$ and $(x_2, y_2)$):
   $ (x - x_1)(x - x_2) + (y - y_1)(y - y_2) = 0 $
-- Position of a point $(x_1, y_1)$ relative to $S = x^2 + y^2 + 2g x + 2f y + c = 0$:
-  $ "Let " S_1 = x_1^2 + y_1^2 + 2g x_1 + 2f y_1 + c $
-  - Outside: $S_1 > 0$
-  - On circumference: $S_1 = 0$
-  - Inside: $S_1 < 0$
-- Condition for tangency (line $y = m x + c$ to circle $x^2 + y^2 = r^2$):
+- Condition for tangency ($y = m x + c$ to $x^2 + y^2 = r^2$):
   $ c = plus.minus r sqrt(1 + m^2) $
-- Tangent in slope form:
-  $ y = m x plus.minus r sqrt(1 + m^2) $
-- Point of contact:
-  $ (minus.plus frac(r m, sqrt(1 + m^2)), plus.minus frac(r, sqrt(1 + m^2))) $
-- Equation of tangent at point $(x_1, y_1)$ on circle $S = 0$:
-  $ T = 0 quad "where " T = x x_1 + y y_1 + g(x + x_1) + f(y + y_1) + c $
+  - Tangent in slope form: $y = m x plus.minus r sqrt(1 + m^2)$
+  - Point of contact: $ (minus.plus frac(r m, sqrt(1 + m^2)), plus.minus frac(r, sqrt(1 + m^2))) $
 - Equation of normal at point $(x_1, y_1)$:
-  - For $x^2 + y^2 = r^2$:
-    $ y x_1 - x y_1 = 0 $
-  - For $x^2 + y^2 + 2g x + 2f y + c = 0$:
-    $ frac(x - x_1, x_1 + g) = frac(y - y_1, y_1 + f) $
+  - For $x^2 + y^2 = r^2$: $y x_1 - x y_1 = 0$
+  - For $x^2 + y^2 + 2 g x + 2 f y + c = 0$: $frac(x - x_1, x_1 + g) = frac(y - y_1, y_1 + f)$
 - Length of tangent from external point $(x_1, y_1)$:
   $ L = sqrt(S_1) $
-- Angle $theta$ between tangents drawn from external point $(x_1, y_1)$:
+- Angle $theta$ between tangents from external point $(x_1, y_1)$:
   $ tan(theta/2) = frac(r, sqrt(S_1)) $
-- Pair of tangents from external point $(x_1, y_1)$:
-  $ S dot S_1 = T^2 $
-- Chord of contact from external point $(x_1, y_1)$:
-  $ T = 0 $
-- Chord bisected at given point $(x_1, y_1)$:
-  $ T = S_1 $
-- Area of the triangle formed by tangents and chord of contact given external point $(x_1, y_1)$ and radius $r$:
+- Area of triangle formed by tangents and chord of contact:
   $ Delta = frac(r dot S_1^(3/2), S_1 + r^2) $
 - Director circle (locus of perpendicular tangents):
-  - For circle $x^2 + y^2 = r^2$:
-    $ x^2 + y^2 = 2 r^2 $
-- Family of circles through intersections of circles $C_1 = 0$ and $C_2 = 0$:
-  $ C_1 + k C_2 = 0 quad (k != -1) $
-- Family of circles through intersections of circle $C = 0$ and line $L = 0$:
-  $ C + k L = 0 $
-- Equation of co-axial family of circles:
-  $ S + lambda L = 0 " or " S_1 + lambda (S_1 - S_2) = 0 $
-- Common chord of two circles $S = 0$ and $S' = 0$:
-  $ S - S' = 0 $
-- Radical axis of two circles $S = 0$ and $S' = 0$:
-  $ S - S' = 0 $
-- Radical center of three circles $S_1 = 0$, $S_2 = 0$, and $S_3 = 0$ taken two at a time:
-  $ S_1 - S_2 = 0 " and " S_2 - S_3 = 0 " and " S_3 - S_1 = 0 $
+  - For $x^2 + y^2 = r^2$: $x^2 + y^2 = 2 r^2$
+- Pole of line $l x + m y + n = 0$ with respect to $x^2 + y^2 = r^2$:
+  $ (-frac(r^2 l, n), -frac(r^2 m, n)) $
+- Family of Circles:
+  - Through intersections of $C_1 = 0$ and $C_2 = 0$: $C_1 + k C_2 = 0 quad (k != -1)$
+  - Through intersections of circle $C = 0$ and line $L = 0$: $C + k L = 0$
+  - Co-axial family: $S + lambda L = 0$ or $S_1 + lambda (S_1 - S_2) = 0$
+- Radical axis / common chord of two circles $s_1 = 0$ and $s_2 = 0$:
+  $ S_1 - S_2 = 0 $
+- Radical center of three circles $S_1 = 0, S_2 = 0, S_3 = 0$:
+  Intersection of $S_1 - S_2 = 0$ and $S_2 - S_3 = 0$.
 - Angle of intersection between circles $C_1$ and $C_2$:
   $
-    cos(theta) = frac(r_1^2 + r_2^2 - d^2, 2 r_1 r_2) = frac(2(g_1 g_2 + f_1 f_2) - (c_1 + c_2), 2 sqrt(g_1^2 + f_1^2 - c_1) sqrt(g_2^2 + f_2^2 - c_2))
+    cos theta = frac(r_1^2 + r_2^2 - d^2, 2 r_1 r_2) = frac(2(g_1 g_2 + f_1 f_2) - (c_1 + c_2), 2 sqrt(g_1^2 + f_1^2 - c_1) sqrt(g_2^2 + f_2^2 - c_2))
   $
-- Orthogonal intersection ($theta = 90 degree$):
-  $ 2 g_1 g_2 + 2 f_1 f_2 = c_1 + c_2 $
-- Relative position (centers $C_1, C_2$, radii $r_1, r_2$, center distance $d = C_1 C_2$):
-  - One inside another (no intersection): $d < |r_1 - r_2|$
-  - Touch internally (1 common tangent): $d = |r_1 - r_2|$
-  - Intersect at two points (2 common tangents): $|r_1 - r_2| < d < r_1 + r_2$
-  - Touch externally (3 common tangents): $d = r_1 + r_2$
-  - Completely separate (4 common tangents): $d > r_1 + r_2$
-- Length of common tangents:
+  - Orthogonal intersection ($theta = 90^circle$): $2 g_1 g_2 + 2 f_1 f_2 = c_1 + c_2$
+- Relative position of two circles (center distance $d = C_1 C_2$):
+  - One inside another: $d < |r_1 - r_2|$ (0 common tangents)
+  - Touch internally: $d = |r_1 - r_2|$ (1 common tangent)
+  - Intersect at two points: $|r_1 - r_2| < d < r_1 + r_2$ (2 common tangents)
+  - Touch externally: $d = r_1 + r_2$ (3 common tangents)
+  - Separate: $d > r_1 + r_2$ (4 common tangents)
+- lengths of common tangents:
   - Direct common tangent: $L_d = sqrt(d^2 - (r_1 - r_2)^2)$
   - Transverse common tangent: $L_t = sqrt(d^2 - (r_1 + r_2)^2)$
-- Equation of a circle through 3 non-collinear points:
+- Centers of similitude (divide center line in ratio $r_1 : r_2$):
+  - Internal: $ (frac(r_1 x_2 + r_2 x_1, r_1 + r_2), frac(r_1 y_2 + r_2 y_1, r_1 + r_2)) $
+  - External: $ (frac(r_1 x_2 - r_2 x_1, r_1 - r_2), frac(r_1 y_2 - r_2 y_1, r_1 - r_2)) $
+- Circle through 3 non-collinear points:
   $
     mat(
       delim: "|",
@@ -254,15 +268,7 @@ $
       x_3^2 + y_3^2, x_3, y_3, 1;
     ) = 0
   $
-- Polar of a point $(x_1, y_1)$ with respect to $S = 0$:
-  $ T = 0 $
-- Pole of a line $l x + m y + n = 0$ with respect to $x^2 + y^2 = r^2$:
-  $ (-frac(r^2 l, n), -frac(r^2 m, n)) $
-- Points dividing the line joining centers internally and externally in the ratio of radii $(r_1 : r_2)$:
-  - Internal center of similitude:
-    $ (frac(r_1 x_2 + r_2 x_1, r_1 + r_2), frac(r_1 y_2 + r_2 y_1, r_1 + r_2)) $
-  - External center of similitude:
-    $ (frac(r_1 x_2 - r_2 x_1, r_1 - r_2), frac(r_1 y_2 - r_2 y_1, r_1 - r_2)) $
+
 \
 == Parabola
 \
@@ -271,22 +277,30 @@ $
   caption: $y^2 = 4a x$,
 ) <parabola>
 \
+
 #table(
   columns: (auto, auto, auto),
   [*Description*], [*$ y^2 = 4a x $*], [*$ x^2 = 4a y $*],
-  [Coordinates of the vertex], [$ (0, 0) $], [$ (0, 0) $],
-  [Coordinates of the focus], [$ (a, 0) $], [$ (0, a) $],
-  [Point of intersection of axis and directrix], [$ (-a, 0) $], [$ (0, -a) $],
-  [Coordinates of endpoints of latus rectum], [$ (a, plus.minus 2a) $], [$ (plus.minus 2a, a) $],
-  [Focal parameter / Distance from focus to directrix], [$ abs(2a) $], [$ abs(2a) $],
+  [Coordinates of vertex], [$ (0, 0) $], [$ (0, 0) $],
+  [Coordinates of focus], [$ (a, 0) $], [$ (0, a) $],
+  [Axis-directrix intersection], [$ (-a, 0) $], [$ (0, -a) $],
+  [Endpoints of latus rectum], [$ (a, plus.minus 2a) $], [$ (plus.minus 2a, a) $],
+  [Focal parameter (Focus to directrix)], [$ abs(2a) $], [$ abs(2a) $],
   [Focal distance of point $(x_1, y_1)$], [$ x_1 + a $], [$ y_1 + a $],
-  [Length of the latus rectum], [$ abs(4a) $], [$ abs(4a) $],
+  [Length of latus rectum], [$ abs(4a) $], [$ abs(4a) $],
   [Equation of directrix], [$ x = -a $], [$ y = -a $],
-  [Equation of the axis], [$ y = 0 $], [$ x = 0 $],
-  [Equation of the latus rectum], [$ x = a $], [$ y = a $],
-  [Equation of the tangent at vertex], [$ x = 0 $], [$ y = 0 $],
+  [Equation of axis], [$ y = 0 $], [$ x = 0 $],
+  [Equation of latus rectum], [$ x = a $], [$ y = a $],
+  [Equation of tangent at vertex], [$ x = 0 $], [$ y = 0 $],
+  [Equation of tangent at $(x_1, y_1)$], [$ y y_1 = 2a(x + x_1) $], [$ x x_1 = 2a(y + y_1) $],
+  [Equation of normal line at $(x_1, y_1)$],
+  [$ y - y_1 = -frac(y_1, 2a) (x - x_1) $ \ $ y = -t x + 2 a t + a t^3 $],
+  [$ x - x_1 = -frac(x_1, 2a) (y - y_1) $ \ $ x = -t y + 2 a t + a t^3 $],
+
+  [Condition for tangency $(y = m x + c)$], [$ c = a/m $], [$ c = -a m^2 $],
   [Parametric equation], [$ x = a t^2, y = 2a t $], [$ x = 2a t, y = a t^2 $],
   [Eccentricity], [$ e = 1 $], [$ e = 1 $],
+  [Director Circle (Perpendicular Tangents Locus)], [$ x = -a " (Directrix)" $], [$ y = -a " (Directrix)" $],
 )
 
 \
@@ -297,26 +311,40 @@ $
   caption: $x^2/a^2 + y^2/b^2 = 1, quad a > b$,
 ) <ellipse>
 \
+
 #table(
   columns: (auto, auto, auto),
   [*Description*], [$ x^2/a^2 + y^2/b^2 = 1, quad a > b $], [$ x^2/a^2 + y^2/b^2 = 1, quad b > a $],
-  [Coordinates of the center], [$ (0, 0) $], [$ (0, 0) $],
-  [Coordinates of Foci], [$ (plus.minus a e, 0) $], [$ (0, plus.minus b e) $],
-  [Coordinates of vertices / Endpoints of major axis], [$ (plus.minus a, 0) $], [$ (0, plus.minus b) $],
-  [Endpoints of minor axis], [$ (0, plus.minus b) $], [$ (plus.minus a, 0) $],
-  [Length of the major axis], [$ 2a $], [$ 2b $],
-  [Length of the minor axis], [$ 2b $], [$ 2a $],
+  [Coordinates of center], [$ (0, 0) $], [$ (0, 0) $],
+  [Coordinates of foci], [$ (plus.minus a e, 0) $], [$ (0, plus.minus b e) $],
+  [Vertices / Major axis endpoints], [$ (plus.minus a, 0) $], [$ (0, plus.minus b) $],
+  [Minor axis endpoints], [$ (0, plus.minus b) $], [$ (plus.minus a, 0) $],
+  [Length of major axis], [$ 2a $], [$ 2b $],
+  [Length of minor axis], [$ 2b $], [$ 2a $],
   [Length of latus rectum], [$ 2 b^2/a $], [$ 2 a^2/b $],
   [Distance between foci], [$ 2a e $], [$ 2b e $],
-  [Focal radii of a point $(x_1, y_1)$], [$ a plus.minus e x_1 $], [$ b plus.minus e y_1 $],
-  [Distance between two directrices], [$ 2 a/e $], [$ 2 b/e $],
+  [Focal radii of point $(x_1, y_1)$], [$ a plus.minus e x_1 $], [$ b plus.minus e y_1 $],
+  [Distance between directrices], [$ 2 a/e $], [$ 2 b/e $],
   [Equation of major axis], [$ y = 0 $], [$ x = 0 $],
   [Equation of minor axis], [$ x = 0 $], [$ y = 0 $],
   [Equation of directrices], [$ x = plus.minus a/e $], [$ y = plus.minus b/e $],
   [Equation of latus rectum], [$ x = plus.minus a e $], [$ y = plus.minus b e $],
-  [Parametric equation], [$ x = a cos(theta), y = b sin(theta) $], [$ x = a cos(theta), y = b sin(theta) $],
+  [Equation of tangent at $(x_1, y_1)$],
+  [$ frac(x x_1, a^2) + frac(y y_1, b^2) = 1 $],
+  [$ frac(x x_1, a^2) + frac(y y_1, b^2) = 1 $],
+
+  [Equation of normal line at $(x_1, y_1)$],
+  [$ frac(a^2 x, x_1) - frac(b^2 y, y_1) = a^2 - b^2 \ a x sec theta - b y csc theta = a^2 - b^2 $],
+  [$ frac(b^2 y, y_1) - frac(a^2 x, x_1) = b^2 - a^2 \ b y sec theta - a x csc theta = b^2 - a^2 $],
+
+  [Condition for tangency $(y = m x + c)$],
+  [$ c = plus.minus sqrt(a^2 m^2 + b^2) $],
+  [$ c = plus.minus sqrt(b^2 m^2 + a^2) $],
+
+  [Parametric equation], [$ x = a cos theta, y = b sin theta $], [$ x = a cos theta, y = b sin theta $],
   [Eccentricity], [$ e = sqrt(1 - b^2/a^2) $], [$ e = sqrt(1 - a^2/b^2) $],
   [Area], [$ pi a b $], [$ pi a b $],
+  [Director Circle], [$ x^2 + y^2 = a^2 + b^2 $], [$ x^2 + y^2 = a^2 + b^2 $],
 )
 
 \
@@ -327,24 +355,57 @@ $
   caption: $x^2/a^2 - y^2/b^2 = 1$,
 ) <hyperbola>
 \
+
 #table(
   columns: (auto, auto, auto),
   [*Description*], [$ x^2/a^2 - y^2/b^2 = 1 $], [$ y^2/b^2 - x^2/a^2 = 1 $],
-  [Coordinates of the center], [$ (0, 0) $], [$ (0, 0) $],
-  [Coordinates of Foci], [$ (plus.minus a e, 0) $], [$ (0, plus.minus b e) $],
-  [Coordinates of vertices / Endpoints of transverse axis], [$ (plus.minus a, 0) $], [$ (0, plus.minus b) $],
-  [Endpoints of conjugate axis], [$ (0, plus.minus b) $], [$ (plus.minus a, 0) $],
-  [Length of the transverse axis], [$ 2a $], [$ 2b $],
-  [Length of the conjugate axis], [$ 2b $], [$ 2a $],
+  [Coordinates of center], [$ (0, 0) $], [$ (0, 0) $],
+  [Coordinates of foci], [$ (plus.minus a e, 0) $], [$ (0, plus.minus b e) $],
+  [Vertices / Transverse axis endpoints], [$ (plus.minus a, 0) $], [$ (0, plus.minus b) $],
+  [Conjugate axis endpoints], [$ (0, plus.minus b) $], [$ (plus.minus a, 0) $],
+  [Length of transverse axis], [$ 2a $], [$ 2b $],
+  [Length of conjugate axis], [$ 2b $], [$ 2a $],
   [Length of latus rectum], [$ 2 b^2/a $], [$ 2 a^2/b $],
   [Distance between foci], [$ 2a e $], [$ 2b e $],
-  [Focal radii of a point $(x_1, y_1)$], [$ abs(e x_1 plus.minus a) $], [$ abs(e y_1 plus.minus b) $],
-  [Distance between two directrices], [$ 2 a/e $], [$ 2 b/e $],
+  [Focal radii of point $(x_1, y_1)$], [$ abs(e x_1 plus.minus a) $], [$ abs(e y_1 plus.minus b) $],
+  [Distance between directrices], [$ 2 a/e $], [$ 2 b/e $],
   [Equation of transverse axis], [$ y = 0 $], [$ x = 0 $],
   [Equation of conjugate axis], [$ x = 0 $], [$ y = 0 $],
   [Equation of directrices], [$ x = plus.minus a/e $], [$ y = plus.minus b/e $],
   [Equation of latus rectum], [$ x = plus.minus a e $], [$ y = plus.minus b e $],
-  [Equation of asymptotes], [$ y = plus.minus b/a x $], [$ y = plus.minus b/a x $],
-  [Parametric equation], [$ x = a sec(theta), y = b tan(theta) $], [$ x = a tan(theta), y = b sec(theta) $],
+  [Equation of asymptotes], [$ y = plus.minus b/a x $], [$ x = plus.minus a/b y $],
+  [Equation of tangent at $(x_1, y_1)$],
+  [$ frac(x x_1, a^2) - frac(y y_1, b^2) = 1 $],
+  [$ frac(y y_1, b^2) - frac(x x_1, a^2) = 1 $],
+
+  [Equation of normal line at $(x_1, y_1)$],
+  [$ frac(a^2 x, x_1) + frac(b^2 y, y_1) = a^2 + b^2 \ a x cos theta + b y cot theta = a^2 + b^2 $],
+  [$ frac(b^2 y, y_1) + frac(a^2 x, x_1) = a^2 + b^2 \ b y cos theta + a x cot theta = a^2 + b^2 $],
+
+  [Condition for tangency $(y = m x + c)$],
+  [$ c = plus.minus sqrt(a^2 m^2 - b^2) $],
+  [$ c = plus.minus sqrt(b^2 - a^2 m^2) $],
+
+  [Parametric equation], [$ x = a sec theta, y = b tan theta $], [$ x = a tan theta, y = b sec theta $],
   [Eccentricity], [$ e = sqrt(1 + b^2/a^2) $], [$ e = sqrt(1 + a^2/b^2) $],
+  [Director Circle], [$ x^2 + y^2 = a^2 - b^2 quad (a > b) $], [$ x^2 + y^2 = b^2 - a^2 quad (b > a) $],
+)
+\
+
+- *Rectangular Hyperbola*
+\
+#table(
+  columns: (auto, auto, auto),
+  [*Characteristic*], [*Standard Form* $ x^2 - y^2 = a^2 $], [*Rotated Form* $ x y = c^2 $],
+  [Relationship],
+  [Derived from standard form with $a = b$],
+  [Derived by rotating $x^2 - y^2 = a^2$ by $45^circle$ where $c^2 = a^2/2$],
+
+  [Axis orientation], [Transverse axis along $x$-axis], [Transverse axis along line $y = x$],
+  [Coordinates of vertices], [$ (plus.minus a, 0) $], [$ (plus.minus c, plus.minus c) $],
+  [Coordinates of foci], [$ (plus.minus a sqrt(2), 0) $], [$ (plus.minus c sqrt(2), plus.minus c sqrt(2)) $],
+  [Length of latus rectum], [$ 2a $], [$ 2 sqrt(2) c $],
+  [Equation of asymptotes], [$ y = plus.minus x $], [$ x = 0, y = 0 $],
+  [Parametric form], [$ x = a sec theta, y = a tan theta $], [$ x = c t, y = c/t $],
+  [Eccentricity], [$ e = sqrt(2) $], [$ e = sqrt(2) $],
 )

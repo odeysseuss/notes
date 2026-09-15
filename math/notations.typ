@@ -3,7 +3,7 @@
 #show: conf.with(title: "Notations")
 
 = Greek Alphabet
-\
+
 #table(
   columns: (auto, auto, auto),
   align: (center, center, left),
@@ -34,9 +34,8 @@
   [$Omega$], [$omega$], [Omega],
 )
 
-\
 = Logical & Set Notation
-\
+
 #table(
   columns: (auto, auto, auto, auto),
   align: (center, left, left, left),
@@ -84,24 +83,23 @@
   [$without$], [Set Difference], [Minus / Relative complement], [$A without B$ (Elements in $A$ but not in $B$)],
 )
 
-#ex(
+#eg(
   $ forall x (x in A union B arrow.r (x in A or x in B)) and exists.not y (y in emptyset and y in.not (A without B)) $,
 )
 Read as: "For all x, x being an element of A union B implies that x is in A or x is in B; and there exists no y such that y is in the empty set and y is not in A minus B."
 
-#ex(
+#eg(
   $ (Gamma models P xor Q) equiv (Gamma tack P or Q) and (Gamma tack.not P and Q) and (P and not P equiv tack.t) $,
 )
 Read as: "Gamma semantically entails P exclusive-or Q is logically equivalent to saying: Gamma proves P or Q, Gamma does not prove P and Q, and P and not P is a contradiction."
 
-#ex(
+#eg(
   $ (forall alpha in A, exists! beta in B : f(alpha) = beta) arrow.r (A subset.eq B and A subset.not emptyset) $,
 )
 Read as: "If for every alpha in A there exists a unique beta in B such that f of alpha equals beta, then A is a subset of B and A is not a subset of the empty set."
 
-\
 = Mathematical Terms
-\
+
 - *Definition:* An explicit statement of the precise meaning of a mathematical term,
   symbol or proof.
 - *Theorem:* A mathematical statement that has been proven to be true.

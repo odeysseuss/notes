@@ -3,9 +3,8 @@
 
 #show: conf.with(title: "Analytical Geometry")
 
-\
 = Coordinate geometry
-\
+
 - Cartesian coordinates $(x, y)$ to polar coordinates $(r, theta)$:
   $ r = sqrt(x^2 + y^2) $
   $
@@ -50,9 +49,9 @@
   $
     H = (frac(x_1 tan A + x_2 tan B + x_3 tan C, tan A + tan B + tan C), frac(y_1 tan A + y_2 tan B + y_3 tan C, tan A + tan B + tan C))
   $
-\
+
 = Straight lines
-\
+
 - General form of a straight line:
   $ a x + b y + c = 0 $
 - Slope ($m$) of a line passing through $(x_1, y_1), (x_2, y_2)$, making an angle $theta$ with the positive x-axis:
@@ -110,11 +109,11 @@
   $
 - Angle between a pair of straight lines passing through the origin ($a x^2 + 2h x y + b y^2 = 0$):
   $ tan theta = frac(2 sqrt(h^2 - a b), abs(a + b)) $
-\
+
 = Conics
-\
+
 == Terms Related to Conics
-\
+
 - *Focus (Plural: Foci):* A fixed point used to define the conic section. The set of
   all points on the curve maintains a constant ratio regarding their distance to the focus relative to the directrix.
 - *Axis of Symmetry (Major/Transverse Axis):* The line passing through the focus (or foci)
@@ -131,9 +130,8 @@
   - Parabola: $e = 1$
   - Hyperbola: $e > 1$
 
-\
 == General equation of a conic
-\
+
 - $
     & a x^2 + b y^2 + 2 h x y + 2 g x + 2 f y + c = 0 \
     & "If " mat(
@@ -154,10 +152,10 @@
     & => h^2 - a b > 0 -> "Hyperbola" \
   $
 - *General Expression of Conic ($S$):* $S$ represents the expression of the conic secrion
-  equation when all terms are moved to one side so that the equation equals to zero. #ex([For a circle:])
+  equation when all terms are moved to one side so that the equation equals to zero. #eg([For a circle:])
   $ S = x^2 + y^2 + 2g x + 2f y + c $
 - *Evaluating at a specific point ($S_1$):* $S_1$ is evaluated by substituting the coordinates
-  of a specific given value $(x_1, y_1)$ directly into the expression $S$. #ex([For a circle:])
+  of a specific given value $(x_1, y_1)$ directly into the expression $S$. #eg([For a circle:])
   $ S = x_1^2 + y_1^2 + 2g x_1 + 2f y_1 + c $
 - *Tangent transformation operator ($T$):* $T$ is created by replacing the variables $(x, y)$ in
   the expression $S$ using a special set of rules with the give point $(x_1, y_1)$:
@@ -171,12 +169,11 @@
     [$ 2 x y $], [$ x y_1 + x_1 y $],
     [$ c $], [$ c $],
   )
-  #ex([For a circle:])
+  #eg([For a circle:])
   $ S = x x_1 + y y_1 + g (x + x_1) + f (y + y_1) + c $
 
-\
 == Universal Conic Properties (Applied to Any Conic $S = 0$)
-\
+
 - Position of a point $(x_1, y_1)$ relative to conic $S$:
   - Outside: $S_1 > 0$ (for ellipse/circle)
   - On the curve: $S_1 = 0$
@@ -192,9 +189,8 @@
 - Polar of a point $(x_1, y_1)$ with respect to $S = 0$:
   $ T = 0 $
 
-\
 == Circle
-\
+
 - General Equation: $x^2 + y^2 + 2g x + 2f y + c = 0$
   - Center: $(-g, -f)$
   - Radius: $r = sqrt(g^2 + f^2 - c)$
@@ -269,9 +265,8 @@
     ) = 0
   $
 
-\
 == Parabola
-\
+
 #figure(
   image("../assets/math_geometry_parabola.png"),
   caption: $y^2 = 4a x$,
@@ -303,9 +298,9 @@
   [Director Circle (Perpendicular Tangents Locus)], [$ x = -a " (Directrix)" $], [$ y = -a " (Directrix)" $],
 )
 
-\
+
 == Ellipse
-\
+
 #figure(
   image("../assets/math_geometry_ellipse.png"),
   caption: $x^2/a^2 + y^2/b^2 = 1, quad a > b$,
@@ -347,9 +342,8 @@
   [Director Circle], [$ x^2 + y^2 = a^2 + b^2 $], [$ x^2 + y^2 = a^2 + b^2 $],
 )
 
-\
 == Hyperbola
-\
+
 #figure(
   image("../assets/math_geometry_hyperbola.png"),
   caption: $x^2/a^2 - y^2/b^2 = 1$,

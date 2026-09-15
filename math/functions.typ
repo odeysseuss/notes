@@ -30,9 +30,9 @@
 }
 
 = Functions
-\
+
 == Definition
-\
+
 - A function is a relation from a set $X$ to a set $Y$ where every element $x in X$ is mapped
   to exactly one element $y in Y$.
 - Multiple inputs can map to the same output, but a single input can never map to multiple
@@ -41,14 +41,15 @@
 - *Vertical Line Test:* Determines whether a given graph represents a function. Draw vertical
   lines across the graph; if any vertical line intersects the graph more than once, it is
   not a function.
-\
 
 == Domain, Codomain and Range
+
 - *Domain:* The set of all possible input values that produces real output values.
 - *Codomain:* The set of all possible theoretical output values a function can produce.
 - *Range:* The set of actual output values a function produces.
-\
+
 == Finding the Domain
+
 - To find the domain we find the restricted input values, these are the input values
   that do not produce any real value.
   #table(
@@ -81,9 +82,9 @@
       & therefore "The domain of f(x) is" (5, infinity)
     $],
   )
-\
+
 == Function Operations
-\
+
 #block([
   #show math.equation.where(block: true): set align(left)
   - $ (f + g)(x) = f(x) + g(x) $
@@ -91,16 +92,17 @@
   - $ (f dot g)(x) = f(x) dot g(x) $
   - $ (f"/"g)(x) = frac(f(x), g(x)) $
 ])
-\
+
 == Composite Functions
+
 - $ (f circle.small g)(x) = f(g(x)) $
 - Domain of $(f circle.small g)$: All $x$ in the domain of $g$ such that $g(x)$
   is in the domain of $f$.
-\
+
 == Piecewise Functions
-\
+
 - Functions defined by different rules over different sub-domains.
-#ex("")
+#eg("")
 $
   f(x) = cases(
     x + 2 quad "if" x < 0,
@@ -109,25 +111,25 @@ $
 $
 
 == One to One (Injective) Function
-\
+
 - A function is one to one if every input in the domain produces a unique output.
 - A function is one to one if and only if $f(a) = f(b)$ implies that $a = b$.
 - *Horizontal Line Test:* Draw horizontal lines across different heights of the functions
   graph. If any horizontal line intersects the graph more than once, it's not a one to one
   function and if every Horizontal line intersects the graph at exactly one point then it is
   a one to one function.
-\
+
 == Onto (Surjective) Function
-\
+
 - A function is onto if the codomain of the function matches the range of a function (Every
   potential output hit).
-\
+
 == Bijective Function
-\
+
 - Both One to One and Onto
-\
+
 == Inverse Function
-\
+
 - An inverse function is a function that "reverses" or "undoes" the operation of the
   corresponding function.
 - *Two-Sided Inverse:* A function $f^(-1)$ is a true two-sided inverse of $f$ if it undoes $f$
@@ -149,23 +151,20 @@ $
   + Swap $x$ and $y$ in the equation.
   + Solve for $y$ in the new equation.
   + Replace $y$ with $f^(-1)(x)$.
-\
 
 == Even/Odd
-\
+
 - *Even Functions:* Symmetric about the y-axis (Mirror image about the y-axis).
   $ f(-x) = f(x) $
   #graph($cos x$, x => calc.cos(x), lq.linspace(-2 * calc.pi, 2 * calc.pi))
 - *Odd Functions:* Symmetric about the origin (Remains same when rotated $180 degree$ across the origin).
   $ f(-x) = -f(x) $
   #graph($sin x$, x => calc.sin(x), lq.linspace(-2 * calc.pi, 2 * calc.pi))
-\
 
 = Transformation of functions
-\
 
 == Translations
-\
+
 #let quad_x = lq.linspace(-5, 5)
 
 - $f(x) = x^2$ -> Parent Function \
@@ -179,10 +178,9 @@ $
   #graph($(x - 2)^2$, x => calc.pow(x - 2, 2), quad_x)
 - $f(x + c)$ -> Shifts the graph c units left
   #graph($(x + 2)^2$, x => calc.pow(x + 2, 2), quad_x)
-\
 
 == Reflections
-\
+
 #let root_pos_x = lq.linspace(0, 5)
 #let root_neg_x = lq.linspace(-5, 0)
 
@@ -195,10 +193,9 @@ $
   #graph($sqrt(-x)$, x => calc.sqrt(-x), root_neg_x)
 - $-f(-x)$ -> $180 degree$ rotation over the origin
   #graph($-sqrt(-x)$, x => -calc.sqrt(-x), root_neg_x)
-\
 
 == Dilations
-\
+
 #let abs_x = lq.linspace(-4, 4)
 
 - $f(x) = abs(x)$ -> Parent Function \
@@ -212,13 +209,11 @@ $
   #graph($abs((2 dot x))$, x => calc.abs(2 * x), abs_x)
 - $f(a dot x)$ -> $0 < a < 1$, Graph is stretched horizontally
   #graph($abs(frac(1, 2) dot x)$, x => calc.abs(1 / 2 * x), abs_x)
-\
 
 = Graphs
-\
 
 == Common Graphs
-\
+
 #graph($2x$, x => 2 * x, lq.linspace(-5, 5))
 #graph($1/x$, x => 1 / x, lq.linspace(-5, 1) + lq.linspace(1, 5), smooth: false)
 #graph($x^2$, x => x * x, lq.linspace(-5, 5))
@@ -227,10 +222,9 @@ $
 #graph($abs(x)$, x => calc.abs(x), lq.linspace(-5, 5))
 #graph($ln(x)$, x => calc.ln(x), lq.linspace(0.01, 5))
 #graph($e^x$, x => calc.exp(x), lq.linspace(0, 5))
-\
 
 == Trig Functions
-\
+
 #let trig_x = lq.linspace(-2 * calc.pi, 2 * calc.pi)
 
 #graph($sin(x)$, x => calc.sin(x), trig_x, smooth: false)
@@ -239,10 +233,9 @@ $
 #graph($cot(x)$, x => 1 / calc.tan(x), trig_x, smooth: false)
 #graph($csc(x)$, x => 1 / calc.sin(x), trig_x, smooth: false)
 #graph($sec(x)$, x => 1 / calc.cos(x), trig_x, smooth: false)
-\
 
 == Inverse Trig Functions
-\
+
 #let arcsin_x = lq.linspace(-1, 1)
 #let arctan_x = lq.linspace(-5, 5)
 #let arcsec_x = lq.linspace(-5, -1) + lq.linspace(1, 5)
@@ -253,10 +246,9 @@ $
 #graph($arccot(x)$, x => calc.pi / 2 - calc.atan(x).rad(), arctan_x, smooth: false)
 #graph($arccsc(x)$, x => calc.asin(1 / x).rad(), arcsec_x, smooth: false)
 #graph($arcsec(x)$, x => calc.acos(1 / x).rad(), arcsec_x, smooth: false)
-\
 
 == Polynomial Functions
-\
+
 - Leading Coefficient Test: The leading coefficient test helps us evaluate the end behaviour of a function.
   We look at the leading term in a polynomial, that is the term with the highest exponent and we look at its
   exponent and coefficient. We check if the exponent is even ($x^2, x^4, "etc"$) or odd ($x^3, x^5 "etc"$)
@@ -275,7 +267,6 @@ $
   [Even], [Positive], [Rises on both sides \ #graph($x^2$, x => x * x, lq.linspace(-5, 5))],
   [Even], [Negative], [Drops down on both sides \ #graph($-x^2$, x => -x * x, lq.linspace(-5, 5))],
 )
-\
 
 - Find the Zeroes: Find the values that makes the function equal to zero.
   This can be understood visually as x-intercepts. To do that we solve the function for x.
@@ -325,11 +316,9 @@ $
       ),
     )
   ])
-\
-
 
 == Rational Functions
-\
+
 - Find the Asymptotes:
   + Vertical Asymptotes: The vertical asymptotes are the values that aren't in the domain.
     To find these we can set the denominator equal to zero and solve for it. Ex.
@@ -387,7 +376,7 @@ $
 #note([
   If a factor $(x - c)$ cancels out completely from both the numerator and denominator, there is a hole at
   $x = c$, rather than a vertical asymptote.
-  #ex("")
+  #eg("")
   $
     f(x) & = frac(x^2 - 9, x - 3) \
          & = frac((x + 3)(x - 3), x - 3) \
@@ -395,9 +384,9 @@ $
          & therefore "There is a hole at" x = 3 "or" (3, 6)
   $
 ])
-\
+
 == Exponential Functions
-\
+
 - For the standard exponential form $y = a^x$,
   + If $a > 1$ and $x$ is positive or if $a < 1$ and $x$ is negative, the function will rise upto the right.
   #graph($2^x$, x => calc.pow(2, x), lq.linspace(-5, 5))

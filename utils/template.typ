@@ -23,6 +23,7 @@
   )
 
   set heading(numbering: "1.")
+  show heading: set block(above: 1.5em, below: 1.5em)
   show heading.where(level: 1): set align(center)
   show heading.where(level: 1): set text(size: 1.3em, fill: rgb(colors.blue))
   show heading.where(level: 2): set text(size: 1.25em, fill: rgb(colors.green))
@@ -62,14 +63,14 @@
   )
 }
 
-#let ex(body) = {
+#let eg(body) = {
   box(
     fill: rgb(colors.black),
     radius: 1em,
     inset: 0.5em,
   )[
     #context {
-      text(fill: rgb(colors.blue), weight: "bold")[Ex.]
+      text(fill: rgb(colors.blue), weight: "bold")[e.g.]
     }
   ]
   [   #body]

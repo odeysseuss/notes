@@ -246,8 +246,8 @@ $
 + $ coth x = frac(cosh x, sinh x) = frac(e^x + e^(-x), e^x - e^(-x)) $
 + $ sech x = frac(1, cosh x) = frac(2, e^x + e^(-x)) $
 + $ csch x = frac(1, sinh x) = frac(2, e^x - e^(-x)) $
-+ $ e^x = cosh x + sinh x $
-+ $ e^(-x) = cosh x - sinh x $
++ $ cosh x + sinh x = e^x $
++ $ cosh x - sinh x = e^(-x) $
 // reciprocal relations
 + $ sinh theta = frac(1, csch theta) $
 + $ cosh theta = frac(1, sech theta) $

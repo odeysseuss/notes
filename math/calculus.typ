@@ -203,6 +203,7 @@ If $u = f(x)$ and $v = g(x)$,
 + $
     integral sqrt(a^2 - x^2) d x = frac(x sqrt(a^2 - x^2), 2) + frac(a^2, 2) arcsin frac(x, a) + C
   $
+
 == Definite Integrals
 
 - $ integral_a^b f(x) d x = [F(x)]_a^b = F(b) - F(a) $
@@ -211,7 +212,30 @@ If $u = f(x)$ and $v = g(x)$,
 - $ integral_a^b f(x) d x = integral_a^b f(a + b - x) d x $
 - $ integral_a^b f(x) d x = integral_(a - c)^(b - c) f(x + c) d x $
 - $ integral_a^b f(x) d x = integral_(a + c)^(b + c) f(x - c) d x $
-- $ integral_a^infinity f(x) d x = lim_(b->infinity) integral_a^b f(x) d x $
+
+== Improper Integrals
+
+#block([
+  #show math.equation.where(block: true): set align(center)
+
+  - *Infinite Interval:*
+    $
+      integral_a^infinity f(x) d x = lim_(t->infinity) integral_a^t f(x) d x \
+      integral_(-infinity)^a f(x) d x = lim_(t->-infinity) integral_t^a f(x) d x \
+      integral_(-infinity)^(infinity) f(x) d x = lim_(t->-infinity) integral_t^c f(x) d x + lim_(s->infinity) integral_c^s f(x) d x
+    $
+
+  - *Unbounded Integrand:* $f(x)$ is undefined or discontinuous on $[a, b]$.
+
+    If $f(x)$ is discontinuous at $a$:
+    $ integral_a^b f(x) d x = lim_(t->a^+) integral_t^b f(x) d x $
+
+    If $f(x)$ is discontinuous at $b$:
+    $ integral_a^b f(x) d x = lim_(t->b^-) integral_a^t f(x) d x $
+
+    If $f(x)$ is discontinuous at $c in (a, b)$:
+    $ integral_a^b f(x) d x = lim_(t->c^-) integral_a^t f(x) d x + lim_(s->c^+) integral_s^b f(x) d x $
+])
 
 = Solving Integrals
 
@@ -240,27 +264,85 @@ If $u = f(x)$ and $v = g(x)$,
 - $ sqrt(a^2 + x^2) => x = a tan theta $
 - $ sqrt(x^2 - a^2) => x = a sec theta $
 
-== Weierstrass Substitution (Tangent Half-Angle)
+== Weierstrass Substitution
 
-Used for rational functions of $sin x$ and $cos x$. Let $t = tan(x/2)$:
 - $ d x = frac(2 d t, 1 + t^2) $
 - $ sin x = frac(2 t, 1 + t^2) $
 - $ cos x = frac(1 - t^2, 1 + t^2) $
 - $ tan x = frac(2 t, 1 - t^2) $
 
-== Shortcuts & Special Integrals
+== Partial Fractions
+
+#note([
+  - Every polynomial can be factored into a product of linear $(a x + b)$ and/or irreducible
+    quadratic factor $(a x^2 + b x + c)$. Degrees >= 3 over $RR$ are always reducible.
+
+  - Every fraction $frac(P(x), Q(x))$, where degree of $P(x)$ < degree of $Q(x)$,
+    can be decomposed into a partial fraction.
+
+  - If degree of $P(x) >= Q(x)$, first perform polynomial long division.
+])
+\
+
+#block([
+  #show math.equation.where(block: true): set align(center)
+
+  - *Distinct Linear Factors:*
+    $
+      frac(5x + 1, (x - 1)(x + 2)) = frac(A, x - 1) + frac(B, x + 2)
+    $
+
+  - *Repeated Linear Factors:*
+    $
+      frac(x^2 + 2, (x - 3)^3) = frac(A, x - 3) + frac(B, (x - 3)^2) + frac(C, (x - 3)^3)
+    $
+
+  - *Distinct Irreducible Quadratic Factors:*
+    $
+      frac(3x - 4, (x + 1)(x^2 + 4)) = frac(A, x + 1) + frac(B x + C, x^2 + 4)
+    $
+
+  - *Repeated Irreducible Quadratic Factors:*
+    $
+      frac(2x + 5, x(x^2 + 1)^2) = frac(A, x) + frac(B x + C, x^2 + 1) + frac(D x + E, (x^2 + 1)^2)
+    $
+
+])
+
+== Special Integrals
 
 - $ integral frac(f prime (x), f(x)) d x = ln abs(f(x)) + C $
 - $ integral frac(f prime (x), sqrt(f(x))) d x = 2 sqrt(f(x)) + C $
 - $ integral e^(m x) [m f(x) + f prime (x)] d x = e^(m x) f(x) + C $
-- $ integral e^(a x) sin(b x) d x = frac(e^(a x), a^2 + b^2) (a sin(b x) - b cos(b x)) + C $
-- $ integral e^(a x) cos(b x) d x = frac(e^(a x), a^2 + b^2) (a cos(b x) + b sin(b x)) + C $
 
-== Reduction Formulas
+#block([
+  #show math.equation.where(block: true): set align(center)
 
-- $ integral sin^n x d x = -frac(sin^(n-1) x cos x, n) + frac(n-1, n) integral sin^(n-2) x d x $
-- $ integral cos^n x d x = frac(cos^(n-1) x sin x, n) + frac(n-1, n) integral cos^(n-2) x d x $
-- $ integral sec^n x d x = frac(sec^(n-2) x tan x, n-1) + frac(n-2, n-1) integral sec^(n-2) x d x $
+  - *Cyclic/Self-Referential Integration by Parts:*
+    $
+      integral e^(a x) sin(b x) d x = frac(e^(a x), a^2 + b^2) (a sin(b x) - b cos(b x)) + C \
+      integral e^(a x) cos(b x) d x = frac(e^(a x), a^2 + b^2) (a cos(b x) + b sin(b x)) + C \
+      "Using Euler's Formula" (e^(i b x) = cos(b x) + i sin(b x)), \
+      integral e^((a + i b)x) d x = frac(e^((a + i b)x), a + i b) + C
+    $
+])
+
+- * Wallis' Formulas:*
+  $
+    integral_0^(pi/2) sin^n x d x = integral_0^(pi/2) cos^n x d x = cases(
+      frac(n - 1, n) dot frac(n - 3, n - 2) dot.c 1/2 dot pi/2,
+      frac(n - 1, n) dot frac(n - 3, n - 2) dot.c 2/3 dot 1,
+    )
+  $
+
+- *Reduction Formulas:*
+  - $ integral sin^n x d x = -frac(sin^(n-1) x cos x, n) + frac(n-1, n) integral sin^(n-2) x d x $
+  - $ integral cos^n x d x = frac(cos^(n-1) x sin x, n) + frac(n-1, n) integral cos^(n-2) x d x $
+  - $ integral tan^n x d x = frac(tan^(n-1) x, n - 1) - integral tan^(n-2) x d x $
+  - $ integral cot^n x d x = -frac(cot^(n-1) x, n - 1) - integral cot^(n-2) x d x $
+  - $ integral sec^n x d x = frac(sec^(n-2) x tan x, n-1) + frac(n-2, n-1) integral sec^(n-2) x d x $
+  - $ integral csc^n x d x = -frac(csc^(n-2) x cot x, n-1) + frac(n-2, n-1) integral csc^(n-2) x d x $
+\
 
 #block([
   #show math.equation.where(block: true): set align(center)

@@ -49,8 +49,8 @@
 
 #let note(body) = {
   block(
-    stroke: (left: 4pt + rgb(colors.blue)),
-    inset: (left: 1.0em, top: 0.5em, bottom: 0.5em),
+    stroke: (left: 3pt + rgb(colors.blue)),
+    inset: (left: 0.8em, top: 0.5em, bottom: 0.5em),
     [
       #block(
         fill: rgb(colors.black),

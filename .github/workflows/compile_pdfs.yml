@@ -1,0 +1,32 @@
+name: Compile to Pdfs
+
+on: push
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: typst-community/setup-typst@v5
+      - name: Install fonts
+        run: |
+          curl -fL https://github.com/odeysseuss/.dotfiles/releases/download/Fonts/MapleMono-NF.zip -o maple-nf.zip
+          unzip maple-nf.zip -d fonts
+          curl -fL https://github.com/firamath/firamath/releases/download/v0.3.4/FiraMath-Regular.otf -o fonts/FiraMath-Regular.otf
+      - name: Compile .typ -> .pdf
+        env:
+          TYPST_FONT_PATHS: "fonts"
+        run: |
+          chmod +x compile.sh
+          ./compile.sh
+      - name: Add pdfs to release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ls -la pdf/
+          gh release delete "Pdfs" --yes 2>/dev/null || true
+          gh release create "Pdfs" pdf/*.pdf --title "Pdfs"

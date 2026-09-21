@@ -23,16 +23,32 @@ If $u = f(x)$ and $v = g(x)$,
 
 == Evaluating Limits
 
-- $ lim_(x->a) frac(x^m - a^m, x^n - a^n) = (frac(m, n)) dot a^(m-n) $
-- $ lim_(x->a) frac(x^n - a^n, x - a) = n a^(n-1) $
-- $ lim_(x->0) frac(sin x, x) = 1 $
-- $ lim_(x->0) frac(tan x, x) = 1 $
-- $ lim_(x->0) frac(e^x-1, x) = 1 $
+- $
+    lim_(x->a) frac(x^m - a^m, x^n - a^n) = (frac(m, n)) dot a^(m-n) \
+    lim_(x->a) frac(x^n - a^n, x - a) = n a^(n-1)
+  $
+- $
+    lim_(x->0) frac(sin x, x) = 1 \
+    lim_(x->0) frac(arcsin x, x) = 1 \
+  $
+- $
+    lim_(x->0) frac(tan x, x) = 1 \
+    lim_(x->0) frac(arctan x, x) = 1 \
+  $
+- $
+    lim_(x->0) frac(a^x - 1, x) = ln a \
+    lim_(x->0) frac(e^x - 1, x) = 1
+  $
 - $ lim_(x->0) frac(ln (1+x), x) = 1 $
 - $ lim_(x->0) (1 + x)^(frac(1, x)) = e $
 - $ lim_(x->infinity) (1 + frac(1, x))^x = e $
 - *L'Hôpital's Rule:* If the limit is in $0/0$ or $infinity/infinity$ indeterminate form,
-$ lim_(x->a) frac(f(x), g(x)) = lim_(x->a) frac(f prime (x), g prime (x)) $
+  $ lim_(x->a) frac(f(x), g(x)) = lim_(x->a) frac(f prime (x), g prime (x)) $
+- *Squeeze Theorem:* If $h(x) <= f(x) <= g(x)$,
+  $
+    & => lim_(x->a) h(x) = lim_(x->a) g(x) = L \
+    & => lim_(x->a) f(x) = L
+  $
 
 = Differentiation
 

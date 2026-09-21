@@ -18,9 +18,11 @@
   )
   set text(
     fill: rgb(colors.light),
-    font: "Maple Mono NF",
+    font: "Maple Mono NF", // Regular, Italic, Bold, BoldItalic
     size: 1.2em,
   )
+  show math.equation: set text(font: "Fira Math")
+  set table(stroke: rgb(colors.grey))
 
   set heading(numbering: "1.")
   show heading: set block(above: 1.5em, below: 1.5em)
@@ -28,9 +30,6 @@
   show heading.where(level: 1): set text(size: 1.3em, fill: rgb(colors.blue))
   show heading.where(level: 2): set text(size: 1.25em, fill: rgb(colors.green))
   show heading.where(level: 3): set text(size: 1.2em, fill: rgb(colors.purple))
-
-  set table(stroke: rgb(colors.grey))
-  show math.equation: set text(font: "Fira Math")
 
   align(center)[#underline(text(
       weight: "bold",
@@ -49,7 +48,7 @@
 
 #let note(body) = {
   block(
-    stroke: (left: 3pt + rgb(colors.blue)),
+    stroke: (left: 2pt + rgb(colors.blue)),
     inset: (left: 0.8em, top: 0.5em, bottom: 0.5em),
     [
       #block(

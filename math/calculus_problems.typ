@@ -95,7 +95,9 @@
 
 *_Evaluate the Following Limits:_*
 
+#q([ $ lim_(x->0) x^2 sin(1/x) $ ])
 #q([ $ lim_(x->infinity) frac(3 x^2 - sin 2 x, x^2 + 5) $ ])
+#q([ $ lim_(x->0) abs(x) (-1)^(1/x) $ ])
 
 == Finding Unknown Parameters
 

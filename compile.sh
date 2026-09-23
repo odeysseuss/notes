@@ -11,8 +11,8 @@ srcs=(
     "math/calculus_problems.typ"
     "math/functions.typ"
     "math/geometry.typ"
-    "math/trigonometry.typ"
     "math/notations.typ"
+    "math/trigonometry.typ"
 )
 
 mkdir -p "pdf"

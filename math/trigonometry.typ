@@ -14,10 +14,10 @@
   [*Identities*], [*Domain*], [*Range*],
   [$sin theta$], [$RR$], [$[-1, 1]$],
   [$cos theta$], [$RR$], [$[-1 ,1]$],
-  [$tan theta$], [$RR - {(2n + 1)pi/2}$], [$RR$],
-  [$cot theta$], [$RR - {n pi}$], [$RR$],
-  [$csc theta$], [$RR - {n pi}$], [$RR - (-1, 1)$],
-  [$sec theta$], [$RR - {(2n + 1)pi/2}$], [$RR - (-1, 1)$],
+  [$tan theta$], [$RR without {(2n + 1)pi/2}$], [$RR$],
+  [$cot theta$], [$RR without {n pi}$], [$RR$],
+  [$sec theta$], [$RR without {(2n + 1)pi/2}$], [$RR without {0}$],
+  [$csc theta$], [$RR without {n pi}$], [$RR without {0}$],
 )
 
 == Trigonometric Formulas
@@ -29,6 +29,7 @@
 + $ cot theta = "Adjacent"/"Opposite" $
 + $ sec theta = "Hypotenuse"/"Adjacent" $
 + $ csc theta = "Hypotenuse"/"Opposite" $
++ $ "function"(pi/2 - theta) = "co-function"(theta) $
 // reciprocal relations
 + $ sin theta = frac(1, csc theta) $
 + $ cos theta = frac(1, sec theta) $
@@ -56,6 +57,15 @@
 + $
     cot(A plus.minus B) = frac(cot A cot B minus.plus 1, cot B plus.minus cot A)
   $
+
++ $
+    sin(A + B) dot sin(A - B) & = sin^2 A - sin^2 B \
+                              & = cos^2 B - cos^2 A
+  $
++ $
+    cos(A + B) dot cos(A - B) & = cos^2 A - sin^2 B \
+                              & = cos^2 B - sin^2 A
+  $
 // product to sum formulas
 + $ 2 sin A cos B = sin(A + B) + sin(A - B) $
 + $ 2 cos A sin B = sin(A + B) - sin(A - B) $
@@ -67,27 +77,20 @@
 + $ cos C + cos D = 2 cos(frac(C + D, 2)) dot cos(frac(C - D, 2)) $
 + $ cos C - cos D = 2 sin(frac(C + D, 2)) dot sin(frac(D - C, 2)) $
 // double angle formulas
-+ $ sin 2 A = 2 sin A cos A = frac(2 tan A, 1 + tan^2 A) $
++ $ sin 2A = 2 sin A cos A = frac(2 tan A, 1 + tan^2 A) $
 + $
-    cos 2 A = cos^2 A - sin^2 A = 1 - 2 sin^2 A = frac(1 - tan^2 A, 1 + tan^2 A)
+    cos 2A = cos^2 A - sin^2 A = frac(1 - tan^2 A, 1 + tan^2 A) \
+    1 - cos 2A = 2 sin^2 A \
+    1 + cos 2A = 2 cos^2 A \
+    tan^2 A = frac(1 - cos 2A, 1 + cos 2A)
   $
-+ $ tan 2 A = frac(2 tan A, 1 - tan^2 A) $
-+ $ cot 2 A = frac(cot^2 A - 1, 2 cot A) $
++ $ tan 2A = frac(2 tan A, 1 - tan^2 A) $
++ $ cot 2A = frac(cot^2 A - 1, 2 cot A) $
 // triple angle formulas
-+ $ sin 3 A = 3 sin A - 4 sin^3 A $
-+ $ cos 3 A = 4 cos^3 A - 3 cos A $
-+ $ tan 3 A = frac(3 tan A - tan^3 A, 1 - 3 tan^2 A) $
-+ $ cot 3 A = frac(cot^3 A - 3 cot A, 3 cot^2 A - 1) $
-
-+ $
-    sin(A + B) dot sin(A - B) & = sin^2 A - sin^2 B \
-                              & = cos^2 B - cos^2 A
-  $
-+ $
-    cos(A + B) dot cos(A - B) & = cos^2 A - sin^2 B \
-                              & = cos^2 B - sin^2 A
-  $
-+ $ tan^2 A = frac(1 - cos 2 A, 1 + cos 2 A) $
++ $ sin 3A = 3 sin A - 4 sin^3 A $
++ $ cos 3A = 4 cos^3 A - 3 cos A $
++ $ tan 3A = frac(3 tan A - tan^3 A, 1 - 3 tan^2 A) $
++ $ cot 3A = frac(cot^3 A - 3 cot A, 3 cot^2 A - 1) $
 
 == Value of #sym.theta
 
@@ -174,8 +177,8 @@ $
   [$arccos x$], [$[-1 ,1]$], [$[0, pi]$],
   [$arctan x$], [$RR$], [$[-pi/2, pi/2]$],
   [$arccot x$], [$RR$], [$(0, pi)$],
-  [$arccsc x$], [$(-infinity, -1] union [1, infinity)$], [$[-pi/2, pi/2] - {0}$],
-  [$arcsec x$], [$(-infinity, -1] union [1, infinity)$], [$[0, pi] - {pi/2}$],
+  [$arccsc x$], [$RR without {0}$], [$[-pi/2, pi/2] without {0}$],
+  [$arcsec x$], [$RR without {0}$], [$[0, pi] without {pi/2}$],
 )
 
 == Inverse Trigonometric Formulas
@@ -183,44 +186,43 @@ $
 // reciprocal relations
 + $ arcsin x = arccsc(1/x) $
 + $ arccos x = arcsec(1/x) $
-+ $
-    arctan x & = arccot(1/x), x > 0 \
-             & = arccot(1/x) - pi, x < 0 \
-             & = 0, x = 0
-  $
-+ $ arccsc x = arcsin(1 / x) = pi/2 - arcsec x $
-+ $ arcsec x = arccos(1 / x) = pi/2 - arccsc x $
-+ $ arccot x = pi/2 - arctan(x) $
++ $ arctan x = arccot(1/x) $
++ $ arccot x = arctan(1/x) $
++ $ arcsec x = arccos(1/x) $
++ $ arccsc x = arcsin(1/x) $
+
 // parity and symmetry
 + $ arcsin(-x) = -arcsin x $
 + $ arccos(-x) = pi - arccos x $
 + $ arctan(-x) = -arctan x $
 + $ arccot(-x) = pi - arccot x $
-+ $ arccsc(-x) = -arccsc x $
 + $ arcsec(-x) = pi - arcsec x $
++ $ arccsc(-x) = -arccsc x $
+
 // sum and difference formulas
 + $ arcsin x + arccos x = pi/2 $
 + $ arctan x + arccot x = pi/2 $
-+ $ arccsc x + arcsec x = pi/2 $
++ $ arcsec x + arccsc x = pi/2 $
 + $ arcsin x plus.minus arcsin y = arcsin(x sqrt(1 - y^2) plus.minus y sqrt(1 - x^2)) $
 + $ arccos x plus.minus arccos y = arccos(x y minus.plus sqrt(1 - x^2)sqrt(1 - y^2)) $
-+ $
-    arctan x + arctan y & = arctan(frac(x + y, 1 - x y)), x y < 1 \
-                        & = pi + arctan(frac(x + y, 1 - x y)), x y > 1, x > 0, y > 0 \
-                        & = -pi + arctan(frac(x + y, 1- x y)), x y > 1, x < 0, y < 0
-  $
-+ $ arctan x - arctan y = arctan(frac(x - y, 1 + x y)) $
-+ $
-    arctan x plus.minus arctan y plus.minus arctan z = arctan(frac(x plus.minus y plus.minus z minus.plus x y z, 1 minus.plus x y minus.plus y z minus.plus z x))
-  $
++ $ arctan x plus.minus arctan y = arctan(frac(x plus.minus y, 1 minus.plus x y)) $
+
 // multiple angle and transform relations
-+ $ 2 arcsin x = arccos(1 - 2x^2) = arcsin(2x sqrt(1 - x^2)) $
++ $ 2 arcsin x = arcsin(2x sqrt(1 - x^2)) = arccos(1 - 2x^2) $
 + $ 2 arccos x = arccos(2x^2 - 1) $
-+ $
-    2 arctan x = arctan(frac(2x, 1 - x^2)) = arccos(frac(1 - x^2, 1 + x^2)) = arcsin(frac(2x, 1 + x^2))
-  $
++ $ 2 arctan x = arctan(frac(2x, 1 - x^2)) = arcsin(frac(2x, 1 + x^2)) = arccos(frac(1 - x^2, 1 + x^2)) $
 + $ 3 arcsin x = arcsin(3x - 4x^3) $
 + $ 3 arccos x = arccos(4x^3 - 3x) $
++ $ 3 arctan x = arctan(frac(3x - x^3, 1 - 3x^2)) $
+
+#note([
+  *The Range Rule for Piecewise Conditions:*
+  The base formulas above assume output angles stay strictly within the target function's principal range ("Safe Zone"):
+  - $arcsin, arctan, arccsc in [-pi/2, pi/2]$ (Quadrants I & IV)
+  - $arccos, arccot, arcsec in [0, pi]$ (Quadrants I & II)
+
+  If evaluating a compound angle sum or multiple angle results in a value outside these bounds, adjust by adding or subtracting $pi$ or $2pi$ to pull the angle back into its principal interval.
+])
 
 = Hyperbolic Trigonometry
 
@@ -232,8 +234,8 @@ $
   [$sinh x$], [$RR$], [$RR$],
   [$cosh x$], [$RR$], [$[1, infinity)$],
   [$tanh x$], [$RR$], [$(-1, 1)$],
-  [$coth x$], [$RR - {0}$], [$(-infinity, -1) union (1, infinity)$],
-  [$csch x$], [$RR - {0}$], [$RR - {0}$],
+  [$coth x$], [$RR without {0}$], [$(-infinity, -1) union (1, infinity)$],
+  [$csch x$], [$RR without {0}$], [$RR without {0}$],
   [$sech x$], [$RR$], [$(0, 1]$],
 )
 
@@ -249,12 +251,12 @@ $
 + $ cosh x + sinh x = e^x $
 + $ cosh x - sinh x = e^(-x) $
 // reciprocal relations
-+ $ sinh theta = frac(1, csch theta) $
-+ $ cosh theta = frac(1, sech theta) $
-+ $ tanh theta = frac(1, coth theta) = frac(sinh theta, cosh theta) $
-+ $ coth theta = frac(1, tanh theta) = frac(cosh theta, sinh theta) $
-+ $ sech theta = frac(1, cosh theta) $
-+ $ csch theta = frac(1, sinh theta) $
++ $ sinh x = frac(1, csch x) $
++ $ cosh x = frac(1, sech x) $
++ $ tanh x = frac(1, coth x) = frac(sinh x, cosh x) $
++ $ coth x = frac(1, tanh x) = frac(cosh x, sinh x) $
++ $ sech x = frac(1, cosh x) $
++ $ csch x = frac(1, sinh x) $
 // parity and symmetry
 + $ sinh(-x) = -sinh x $
 + $ cosh(-x) = cosh x $
@@ -267,33 +269,38 @@ $
 + $ sech^2 x + tanh^2 x = 1 $
 + $ coth^2 x - csch^2 x = 1 $
 // sum and difference formulas
-+ $ sinh(A plus.minus B) = sinh A cosh B plus.minus cosh A sinh B $
-+ $ cosh(A plus.minus B) = cosh A cosh B plus.minus sinh A sinh B $
-+ $ tanh(A plus.minus B) = frac(tanh A plus.minus tanh B, 1 plus.minus tanh A tanh B) $
-+ $ coth(A plus.minus B) = frac(coth A coth B plus.minus 1, coth B plus.minus coth A) $
-// double angle formulas
-+ $ sinh 2A = 2 sinh A cosh A = frac(2 tanh A, 1 - tanh^2 A) $
-+ $ cosh 2A = cosh^2 A + sinh^2 A = 2 cosh^2 A - 1 = 1 + 2 sinh^2 A = frac(1 + tanh^2 A, 1 - tanh^2 A) $
-+ $ tanh 2A = frac(2 tanh A, 1 + tanh^2 A) $
-+ $ coth 2A = frac(coth^2 A + 1, 2 coth A) $
-// half angle formulas
-+ $ sinh(A/2) = plus.minus sqrt(frac(cosh A - 1, 2)) $
-+ $ cosh(A/2) = sqrt(frac(cosh A + 1, 2)) $
-+ $ tanh(A/2) = frac(cosh A - 1, sinh A) = frac(sinh A, cosh A + 1) = sqrt(frac(cosh A - 1, cosh A + 1)) $
-// triple angle formulas
-+ $ sinh 3A = 3 sinh A + 4 sinh^3 A $
-+ $ cosh 3A = 4 cosh^3 A - 3 cosh A $
-+ $ tanh 3A = frac(3 tanh A + tanh^3 A, 1 + 3 tanh^2 A) $
++ $ sinh(x plus.minus y) = sinh x cosh y plus.minus cosh x sinh y $
++ $ cosh(x plus.minus y) = cosh x cosh y plus.minus sinh x sinh y $
++ $ tanh(x plus.minus y) = frac(tanh x plus.minus tanh y, 1 plus.minus tanh x tanh y) $
++ $ coth(x plus.minus y) = frac(coth x coth y plus.minus 1, coth y plus.minus coth x) $
 // product to sum formulas
-+ $ 2 sinh A cosh B = sinh(A + B) + sinh(A - B) $
-+ $ 2 cosh A sinh B = sinh(A + B) - sinh(A - B) $
-+ $ 2 cosh A cosh B = cosh(A + B) + cosh(A - B) $
-+ $ 2 sinh A sinh B = cosh(A + B) - cosh(A - B) $
++ $ 2 sinh x cosh y = sinh(x + y) + sinh(x - y) $
++ $ 2 cosh x sinh y = sinh(x + y) - sinh(x - y) $
++ $ 2 cosh x cosh y = cosh(x + y) + cosh(x - y) $
++ $ 2 sinh x sinh y = cosh(x + y) - cosh(x - y) $
 // sum to product formulas
-+ $ sinh C + sinh D = 2 sinh(frac(C + D, 2)) dot cosh(frac(C - D, 2)) $
-+ $ sinh C - sinh D = 2 cosh(frac(C + D, 2)) dot sinh(frac(C - D, 2)) $
-+ $ cosh C + cosh D = 2 cosh(frac(C + D, 2)) dot cosh(frac(C - D, 2)) $
-+ $ cosh C - cosh D = 2 sinh(frac(C + D, 2)) dot sinh(frac(C - D, 2)) $
++ $ sinh x + sinh y = 2 sinh(frac(x + y, 2)) dot cosh(frac(x - y, 2)) $
++ $ sinh x - sinh y = 2 cosh(frac(x + y, 2)) dot sinh(frac(x - y, 2)) $
++ $ cosh x + cosh y = 2 cosh(frac(x + y, 2)) dot cosh(frac(x - y, 2)) $
++ $ cosh x - cosh y = 2 sinh(frac(x + y, 2)) dot sinh(frac(x - y, 2)) $
+// double angle formulas
++ $ sinh 2x = 2 sinh x cosh x = frac(2 tanh x, 1 - tanh^2 x) $
++ $
+    cosh 2x = cosh^2 x + sinh^2 x = frac(1 + tanh^2 x, 1 - tanh^2 x) \
+    cosh 2x + 1 = 2 cosh^2 x \
+    cosh 2x - 1 = 2 sinh^2 x \
+    tanh^2 x = frac(cosh 2x - 1, cosh 2x + 1)
+  $
++ $ tanh 2x = frac(2 tanh x, 1 + tanh^2 x) $
++ $ coth 2x = frac(coth^2 x + 1, 2 coth x) $
+// half angle formulas
++ $ sinh(x/2) = plus.minus sqrt(frac(cosh x - 1, 2)) $
++ $ cosh(x/2) = sqrt(frac(cosh x + 1, 2)) $
++ $ tanh(x/2) = frac(cosh x - 1, sinh x) = frac(sinh x, cosh x + 1) = sqrt(frac(cosh x - 1, cosh x + 1)) $
+// triple angle formulas
++ $ sinh 3x = 3 sinh x + 4 sinh^3 x $
++ $ cosh 3x = 4 cosh^3 x - 3 cosh x $
++ $ tanh 3x = frac(3 tanh x + tanh^3 x, 1 + 3 tanh^2 x) $
 // de moivre's analogue for hyperbolic functions
 + $ (cosh x plus.minus sinh x)^n = cosh(n x) plus.minus sinh(n x) = e^(plus.minus n x) $
 
@@ -308,27 +315,27 @@ $
   [$arcsinh x$], [$RR$], [$RR$],
   [$arccosh x$], [$[1, infinity)$], [$[0, infinity)$],
   [$arctanh x$], [$(-1, 1)$], [$RR$],
-  [$arccoth x$], [$(-infinity, -1) union (1, infinity)$], [$RR - {0}$],
+  [$arccoth x$], [$(-infinity, -1) union (1, infinity)$], [$RR without {0}$],
   [$arcsech x$], [$(0, 1]$], [$[0, infinity)$],
-  [$arccsch x$], [$RR - {0}$], [$RR - {0}$],
+  [$arccsch x$], [$RR without {0}$], [$RR without {0}$],
 )
 
 == Inverse Hyperbolic Trigonometric Formulas
 
 // logarithmic representations
 + $ arcsinh x = ln(x + sqrt(x^2 + 1)) $
-+ $ arccosh x = ln(x + sqrt(x^2 - 1)), quad x >= 1 $
-+ $ arctanh x = 1/2 ln(frac(1 + x, 1 - x)), quad |x| < 1 $
-+ $ arccoth x = 1/2 ln(frac(x + 1, x - 1)), quad |x| > 1 $
-+ $ arcsech x = ln(frac(1 + sqrt(1 - x^2), x)), quad 0 < x <= 1 $
-+ $ arccsch x = ln(frac(1, x) + sqrt(1/x^2 + 1)), quad x != 0 $
++ $ arccosh x = ln(x + sqrt(x^2 - 1)) $
++ $ arctanh x = 1/2 ln(frac(1 + x, 1 - x)) $
++ $ arccoth x = 1/2 ln(frac(x + 1, x - 1)) $
++ $ arcsech x = ln(frac(1 + sqrt(1 - x^2), x)) $
++ $ arccsch x = ln(frac(1, x) + sqrt(1/x^2 + 1)) $
 // reciprocal relations
-+ $ arcsinh(1/x) = arccsch x, quad x != 0 $
-+ $ arccosh(1/x) = arcsech x, quad 0 < x <= 1 $
-+ $ arctanh(1/x) = arccoth x, quad |x| > 1 $
-+ $ arccoth(1/x) = arctanh x, quad 0 < |x| < 1 $
-+ $ arcsech(1/x) = arccosh x, quad x >= 1 $
-+ $ arccsch(1/x) = arcsinh x, quad x != 0 $
++ $ arcsinh(1/x) = arccsch x $
++ $ arccosh(1/x) = arcsech x $
++ $ arctanh(1/x) = arccoth x $
++ $ arccoth(1/x) = arctanh x $
++ $ arcsech(1/x) = arccosh x $
++ $ arccsch(1/x) = arcsinh x $
 // parity and symmetry
 + $ arcsinh(-x) = -arcsinh x $
 + $ arccosh(-x) = pi - arccosh x $

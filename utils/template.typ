@@ -11,6 +11,9 @@
   grey: "#9e9b93",
 )
 
+// must place it before conf()
+#let q_counter = counter("question")
+
 #let conf(title: "", body) = {
   set page(
     numbering: "1",
@@ -30,6 +33,12 @@
   show heading.where(level: 1): set text(size: 1.3em, fill: rgb(colors.blue))
   show heading.where(level: 2): set text(size: 1.25em, fill: rgb(colors.green))
   show heading.where(level: 3): set text(size: 1.2em, fill: rgb(colors.purple))
+
+  // must be inside conf()
+  show heading: it => {
+    q_counter.update(0)
+    it
+  }
 
   align(center)[#underline(text(
       weight: "bold",
@@ -73,12 +82,6 @@
     }
   ]
   [   #body]
-}
-
-#let q_counter = counter("question")
-#show heading: it => {
-  q_counter.update(0)
-  it
 }
 
 #let q(body) = {

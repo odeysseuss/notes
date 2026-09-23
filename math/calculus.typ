@@ -9,8 +9,16 @@
 == Indeterminate Forms
 
 - $
-    frac(0, 0), frac(infinity, infinity), 0 times infinity, infinity^0, infinity - infinity, 1^infinity, 0^0
+    frac(0, 0), frac(infinity, infinity), 0 times infinity, infinity - infinity, infinity^0, 1^infinity, 0^0
   $
+
+== #sym.epsilon#sym.delta Definition of Limits
+
+$
+  & lim_(x->a) f(x) = L \
+  & forall epsilon > 0, exists delta > 0: && 0 < abs(x - a) < delta, \
+  &                                       && => abs(f(x) - L) < epsilon
+$
 
 == Properties of Limits
 
@@ -125,6 +133,85 @@ If $u = f(x)$ and $v = g(x)$,
 + $ ddx(arcsech x) = frac(-1, x sqrt(1 - x^2)) $
 + $ ddx(arccsch x) = frac(-1, abs(x) sqrt(1 + x^2)) $
 
+== Implicit Differentiation
+
+#block([
+  #show math.equation.where(block: true): set align(center)
+
+  Implicit differentiation is a technique used to find the derivative $frac(d y, d x)$ of an equation
+  where $y$ cannot be easily isolated as an explicit function of $x$. Instead of solving for $y$ first,
+  we differentiate both sides of the equation with respect to $x$, applying the *chain rule* whenever taking
+  the derivative of a term containing $y$. #eg("")
+
+  $
+    & x^2 + y^2 = 25 \
+    & => ddx(x^2) + ddx(y^2) = ddx(25) \
+    & => 2x + 2y dot ddx(y) = 0 \
+    & => 2x + 2y frac(d y, d x) = 0 \
+    & => frac(d y, d x) = - x/y
+  $
+
+])
+
+== Monotonicity & Concavity
+
+- *Increasing/Decreasing:*
+  - If $f prime (x) > 0$, for all $x in I$, then $f(x)$ is increasing on the interval $I$.
+  - If $f prime (x) < 0$, for all $x in I$, then $f(x)$ is decreasing on the interval $I$.
+  - If $f prime (x) = 0$, for all $x in I$, then $f(x)$ is constant on the interval $I$.
+
+- *Critical Points:* $x = c$ is a critical point of $f(x)$ if $c$ is in the domain and either
+  - $f prime (c) = 0$ or,
+  - $f prime (c) "DNE"$
+
+- *Concavity:*
+  - If $f prime prime (x) > 0$, for all $x in I$, then $f(x)$ is concave up on the interval $I$.
+  - If $f prime prime (x) < 0$, for all $x in I$, then $f(x)$ is concave down on the interval $I$.
+
+- *Inflection Points:* $x = c$ is an inflection point of $f(x)$ if $f(x)$ is continuous at $c$ and the concavity changes at $x = c$.
+
+== Extremas
+
+- *Absolute Extrema:*
+  - $x = c$ is an absolute maxima of $f(x)$ if $f(c) >= f(x)$ for all $x$ in the domain.
+  - $x = c$ is an absolute minima of $f(x)$ if $f(c) <= f(x)$ for all $x$ in the domain.
+
+- *Local Extrema:*
+  - $x = c$ is an local maxima of $f(x)$ if $f(c) >= f(x)$ for all $x$ near $c$.
+  - $x = c$ is an local minima of $f(x)$ if $f(c) <= f(x)$ for all $x$ near $c$.
+
+- *1st Derivative Test:* If $x = c$ is a critical point of $f(x)$, then
+  - $x = c$ is a local maxima of $f(x)$ if $f prime (x) > 0$ to the left of $x = c$ and $f prime (x) < 0$ to the right of $x = c$.
+  - $x = c$ is a local minima of $f(x)$ if $f prime (x) < 0$ to the left of $x = c$ and $f prime (x) > 0$ to the right of $x = c$.
+  - $x = c$ is not a local extrema of $f(x)$ if $f prime (x)$ has the same sign on both sides of $x = c$.
+
+- *2nd Derivative Test:* If $x = c$ is a critical point of $f(x)$ such that $f prime (c) = 0$, then
+  - $x = c$ is a local maxima of $f(x)$ if $f prime prime (c) < 0$.
+  - $x = c$ is a local minima of $f(x)$ if $f prime prime (c) > 0$.
+  - $x = c$ may be a local maxima/minima or neither if $f prime prime (c) = 0$.
+
+- *Fermat's Theorem:* If $f(x)$ has a local extrema at $x = c$, then $x = c$ is a critical point of $f(x)$.
+
+- *Extreme Value Theorem:* If $f(x)$ is continuous on the closed interval $[a, b]$ then there exists values $c$ and $d$ such that,
+  - $a <= c, d <= b$
+  - $f(c)$ is an absolute maxima in $[a, b]$.
+  - $f(d)$ is an absolute minima in $[a, b]$.
+
+\
+#block([
+  #show math.equation.where(block: true): set align(center)
+
+  == IVT & MVT Theorems
+
+  - *Intermediate Value Theorem (IVT):* If $f(x)$ is continuous on the closed interval $[a, b]$, and $u$ is any number between $f(a)$ and
+    $f(b)$, then there is at least one number $c$ in the open interval $(a, b)$ such that:
+    $ f(c) = u $
+
+  - *Mean Value Theorem (MVT):* If $f(x)$ is continuous on the closed interval $[a, b]$, and Differentiable on the open interval
+    $(a, b)$, then there is at least one number $c$ in $(a, b)$ such that:
+    $ f prime (c) = frac(f(b) - f(a), b - a) $
+])
+
 = Integration
 
 == Common Properties
@@ -209,25 +296,25 @@ If $u = f(x)$ and $v = g(x)$,
   $
 + $ integral frac(1, sqrt(a^2 - x^2)) d x = arcsin frac(x, a) + C $
 + $
-    integral sqrt(x^2 + a^2) d x & = frac(x sqrt(x^2 + a^2), 2) + frac(a^2, 2) ln abs(x + sqrt(x^2 + a^2)) + C \
-                                 & = frac(x sqrt(x^2 + a^2), 2) + frac(a^2, 2) arcsinh frac(x, a) + C
+    integral sqrt(x^2 + a^2) d x & = x/2 sqrt(x^2 + a^2) + a^2/2 ln abs(x + sqrt(x^2 + a^2)) + C \
+                                 & = x/2 sqrt(x^2 + a^2) + a^2/2 arcsinh frac(x, a) + C
   $
 + $
-    integral sqrt(x^2 - a^2) d x & = frac(x sqrt(x^2 - a^2), 2) + frac(a^2, 2) ln abs(x + sqrt(x^2 - a^2)) + C \
-                                 & = frac(x sqrt(x^2 - a^2), 2) - frac(a^2, 2) arccosh frac(x, a) + C
+    integral sqrt(x^2 - a^2) d x & = x/2 sqrt(x^2 - a^2) + a^2/2 ln abs(x + sqrt(x^2 - a^2)) + C \
+                                 & = x/2 sqrt(x^2 - a^2) - a^2/2 arccosh frac(x, a) + C
   $
 + $
-    integral sqrt(a^2 - x^2) d x = frac(x sqrt(a^2 - x^2), 2) + frac(a^2, 2) arcsin frac(x, a) + C
+    integral sqrt(a^2 - x^2) d x = x/2 sqrt(a^2 - x^2) + a^2/2 arcsin frac(x, a) + C
   $
 
 == Definite Integrals
 
 - $ integral_a^b f(x) d x = [F(x)]_a^b = F(b) - F(a) $
 - $ integral_a^b f(x) d x = - integral_b^a f(x) d x $
-- $ integral_a^b f(x) d x = integral_a^b f(z) d z $
-- $ integral_a^b f(x) d x = integral_a^b f(a + b - x) d x $
+- $ integral_a^b f(x) d x = integral_(a prime)^(b prime) f(z) d z $
 - $ integral_a^b f(x) d x = integral_(a - c)^(b - c) f(x + c) d x $
 - $ integral_a^b f(x) d x = integral_(a + c)^(b + c) f(x - c) d x $
+- $ integral_a^b f(x) d x = integral_a^b f(a + b - x) d x $
 
 == Improper Integrals
 
@@ -279,9 +366,17 @@ If $u = f(x)$ and $v = g(x)$,
 - $ sqrt(a^2 - x^2) => x = a sin theta $
 - $ sqrt(a^2 + x^2) => x = a tan theta $
 - $ sqrt(x^2 - a^2) => x = a sec theta $
+- $ frac(a plus.minus x, a minus.plus x) => x = a cos theta $
+- $
+    frac(2 x, 1 plus.minus x^2) "or"
+    frac(1 - x^2, 1 + x^2) "or"
+    frac(a plus.minus x, 1 minus.plus a x)
+    => x = tan theta
+  $
 
 == Weierstrass Substitution
 
+Let $t = tan x/2$,
 - $ d x = frac(2 d t, 1 + t^2) $
 - $ sin x = frac(2 t, 1 + t^2) $
 - $ cos x = frac(1 - t^2, 1 + t^2) $
@@ -336,9 +431,9 @@ If $u = f(x)$ and $v = g(x)$,
 
   - *Cyclic/Self-Referential Integration by Parts:*
     $
-      integral e^(a x) sin(b x) d x = frac(e^(a x), a^2 + b^2) (a sin(b x) - b cos(b x)) + C \
-      integral e^(a x) cos(b x) d x = frac(e^(a x), a^2 + b^2) (a cos(b x) + b sin(b x)) + C \
-      "Using Euler's Formula" (e^(i b x) = cos(b x) + i sin(b x)), \
+      integral e^(a x) sin(b x) d x = frac(e^(a x), a^2 + b^2) [a sin(b x) - b cos(b x)] + C \
+      integral e^(a x) cos(b x) d x = frac(e^(a x), a^2 + b^2) [a cos(b x) + b sin(b x)] + C \
+      "Using Euler's Formula" [e^(i b x) = cos(b x) + i sin(b x)], \
       integral e^((a + i b)x) d x = frac(e^((a + i b)x), a + i b) + C
     $
 ])
@@ -358,6 +453,19 @@ If $u = f(x)$ and $v = g(x)$,
   - $ integral cot^n x d x = -frac(cot^(n-1) x, n - 1) - integral cot^(n-2) x d x $
   - $ integral sec^n x d x = frac(sec^(n-2) x tan x, n-1) + frac(n-2, n-1) integral sec^(n-2) x d x $
   - $ integral csc^n x d x = -frac(csc^(n-2) x cot x, n-1) + frac(n-2, n-1) integral csc^(n-2) x d x $
+
+== Riemann Sum
+
+#block([
+  #show math.equation.where(block: true): set align(center)
+
+  - $
+      integral_a^b f(x) d x = lim_(n->infinity) sum_(i=1)^n f(x_i) Delta x \
+      Delta x = frac(b - a, n)
+    $
+
+])
+
 \
 
 #block([
@@ -382,8 +490,9 @@ If $u = f(x)$ and $v = g(x)$,
   == Common Series
 
   - *Geometric Series:*
-    $ sum_(i=1)^infinity a r^(i-1) = a + a r + a r^2 + ... $
-    - *Converges:* $abs(r) < 1 \ (-1 < r < 1)$ with sum $S = a / (1 - r)$
+    $ sum_(n=1)^infinity a r^(n-1) = a + a r + a r^2 + ... $
+    - *Converges:* $abs(r) < 1 => (-1 < r < 1)$
+    - *Sum:* $S = frac(a, 1 - r)$
     - *Diverges:* $abs(r) >= 1$
 
   - *P-Series:*
@@ -414,8 +523,8 @@ If $u = f(x)$ and $v = g(x)$,
     - Centered at origin ($c = 0$): $sum_(n=0)^infinity a_n x^n$
     - Defines a function $f(x) = sum_(n=0)^infinity a_n (x - c)^n$ on its domain of convergence.
     - Radius and Interval of Convergence:
-      - Converges only at $x = c$ $(R = 0)$
-      - Converges for all x $(R = infinity)$
+      - Converges only at $x = c$ $(R = 0)$ or,
+      - Converges for all x $(R = infinity)$ or,
       - Converges for $abs(x - c) < R$ and diverges $abs(x - c) > R$
       #note([
         Endpoints $x = c - R$ and $x = c + R$ must be tested individually using

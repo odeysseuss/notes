@@ -1,4 +1,4 @@
-#import "/utils/template.typ": *
+#import "/template/template.typ": *
 
 #show: conf.with(title: "Notations")
 

@@ -1,4 +1,4 @@
-#import "/utils/template.typ": *
+#import "/template/template.typ": *
 #import "/utils/math.typ": *
 
 #show: conf.with(title: "Calculus")
@@ -607,8 +607,10 @@ Let $t = tan x/2$,
 + $ ln(1 - x) = -x - x^2/ 2 - x^3/ 3 - x^4/ 4 - ... quad (-1 <= x < 1) $
 + $ sin x = x - x^3/ 3! + x^5/ 5! - x^7/ 7! + ... $
 + $ cos x = 1 - x^2/ 2! + x^4/ 4! - x^6/ 6! + ... $
-+ $ arctan x = x - x^3/3 + x^5/5 - x^7/7 + ... quad (-1 <= x <= 1) $
-+ $ (1 + x)^k = 1 + k x + (k(k - 1))/2! x^2 + ... quad (-1 < x < 1) $
++ $ arctan x = x - x^3/3 + x^5/5 - x^7/7 + ... quad (abs(x) <= 1) $
++ $
+    (1 + x)^k = sum_(n=0)^infinity mat(delim: "(", k; n) x_n = 1 + k x + frac(k(k - 1), 2!) x^2 + frac(k(k - 1)(k - 2), 3!) x^3 + ... quad (abs(x) < 1)
+  $
 
 #block([
   #show math.equation.where(block: true): set align(center)

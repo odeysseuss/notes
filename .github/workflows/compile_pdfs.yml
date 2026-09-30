@@ -14,8 +14,8 @@ jobs:
       - uses: typst-community/setup-typst@v5
       - name: Install fonts
         run: |
-          curl -fL https://github.com/odeysseuss/.dotfiles/releases/download/Fonts/MapleMono-NF.zip -o maple-nf.zip
-          unzip maple-nf.zip -d fonts
+          curl -fL https://github.com/odeysseuss/.dotfiles/releases/download/Fonts/MapleMono-OTF.zip -o maple.zip
+          unzip maple.zip -d fonts
           curl -fL https://github.com/firamath/firamath/releases/download/v0.3.4/FiraMath-Regular.otf -o fonts/FiraMath-Regular.otf
       - name: Compile .typ -> .pdf
         env:

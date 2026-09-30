@@ -1,11 +1,11 @@
 #import "@preview/lilaq:0.6.0" as lq
-#import "/utils/template.typ": *
+#import "/template/template.typ": *
 #import "/utils/math.typ": *
 
 #show: conf.with(title: "Functions")
 
-#show: lq.set-grid(stroke: rgb(colors.grey))
-#show: lq.set-spine(stroke: rgb(colors.light))
+#show: lq.set-grid(stroke: colors.grey)
+#show: lq.set-spine(stroke: colors.light)
 #show lq.selector(lq.legend): set text(size: 0.65em)
 
 #let graph(title, func, x, xlim: (-5, 5), ylim: (-5, 5), smooth: true) = {
@@ -291,24 +291,24 @@ $
       ylim: (-5, 5),
       legend: (
         position: top + left,
-        fill: rgb(colors.dark),
+        fill: colors.dark,
       ),
       lq.plot(
-        color: rgb(colors.blue),
+        color: colors.blue,
         smooth: true,
         lq.linspace(-5, 5),
         lq.linspace(-5, 5).map(x => calc.pow(x - 1, 3)),
         label: [$(x - 1)^3$],
       ),
       lq.plot(
-        color: rgb(colors.green),
+        color: colors.green,
         smooth: true,
         lq.linspace(-5, 5),
         lq.linspace(-5, 5).map(x => calc.pow(x - 1, 5)),
         label: [$(x - 1)^5$],
       ),
       lq.plot(
-        color: rgb(colors.purple),
+        color: colors.purple,
         smooth: true,
         lq.linspace(-5, 5),
         lq.linspace(-5, 5).map(x => calc.pow(x - 1, 7)),

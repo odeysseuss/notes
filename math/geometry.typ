@@ -1,4 +1,4 @@
-#import "/utils/template.typ": *
+#import "/template/template.typ": *
 #import "/utils/math.typ": *
 
 #show: conf.with(title: "Analytical Geometry")

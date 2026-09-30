@@ -1,4 +1,4 @@
-#import "/utils/template.typ": *
+#import "/template/template.typ": *
 #import "/utils/math.typ": *
 #import "@preview/cetz:0.5.0"
 
@@ -112,7 +112,7 @@
   let b = (2.5, 0)
   let c = (0, 3)
 
-  line(a, b, c, close: true, name: "tri", stroke: rgb(colors.light))
+  line(a, b, c, close: true, name: "tri", stroke: colors.light)
 
   // north -> below the point
   // south -> above the point
